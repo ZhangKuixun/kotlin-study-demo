@@ -1,8 +1,5 @@
 package com.kevin.kotlin2
 
-import android.annotation.SuppressLint
-import java.lang.AssertionError
-
 /**
  * other：Kevin
  * create time：2021/6/22
@@ -11,10 +8,15 @@ import java.lang.AssertionError
  * generics 泛型，变量类型的参数化
  *
  */
-//fun main() {
-//    val myGeneric = MyGeneric("hello world")// 借助于kotlin的类型推断
-//    println(myGeneric.varible)
-//}
+fun main() {
+    val myGeneric = MyGeneric("hello world")// 借助于kotlin的类型推断
+    println(myGeneric.varible)//hello world
+
+    println("----------")
+
+    val myClass = MyClass<String, Number>("abc", 1)
+    myTest(myClass)//abc
+}
 
 class MyGeneric<T>(t: T) {
     var varible: T
@@ -88,10 +90,5 @@ fun myTest(myClass: MyClass<String, Number>) {
     // 把Number类型的数据写入Int类型，读的时候，读的是Int类型，逆变
     val myObject: MyClass<Any, Int> = myClass
 
-    println(myObject.get())
-}
-
-fun main() {
-    val myClass = MyClass<String, Number>("abc", 1)
-    myTest(myClass)
+    println(myObject.get())//abc
 }

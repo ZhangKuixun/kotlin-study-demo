@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Basics">
         <activity
-            android:name=".MainActivity"
+            android:name="com.kevin.kotlin.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         <activity
             android:name=".HelloKotlin1"
             android:screenOrientation="portrait" />
-        <activity android:name=".HelloWorldDemo2" />
+        <activity android:name="com.kevin.kotlin.HelloWorldDemo2" />
     </application>
 
 </manifest>

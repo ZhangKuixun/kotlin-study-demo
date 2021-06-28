@@ -1,4 +1,4 @@
-package com.kevin.kotlin.basics
+package com.kevin.kotlin
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

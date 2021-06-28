@@ -1,8 +1,4 @@
-package com.kevin.kotlin.basics
-
-import android.os.Bundle
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+package com.kevin.kotlin
 
 /**
  * other：Kevin

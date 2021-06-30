@@ -23,7 +23,7 @@ class B : A() {
 
 /**
  * 在函数中，如果一个有默认值的参数位于一个无默认值的参数前面，那么只能通过具名参数的方式来调用函数。
- * 具名参数：调用的时候需要把参数名字也写上，比如：test2(b = 3)。
+ * 具名参数：调用的时候需要把参数名字也写上，比如：test2(b = 2)。
  */
 fun test2(a: Int = 1, b: Int) = println(a - b)
 
@@ -40,6 +40,17 @@ fun test2(a: Int = 1, b: Int) = println(a - b)
 fun test3(a: Int = 1, b: Int = 2, compute: (x: Int, y: Int) -> Unit) {
     compute(a, b)
 }
+
+/**
+ * 在调用函数时，函数参数可以是具名的，使用场景：当一个函数拥有大量参数或是一些参数拥有默认值时。
+ */
+fun test4(a: Int, b: Int = 2, c: Int = 3, d: Int) = println(a + b + c + d)
+
+/**
+ * 在调用函数时，如果同时使用了位置参数与具名参数，所有的位置参数都必须要位于第一个具名参数之前。
+ * 比如：foo(1, x=2)是允许的；foo(x=1, 2)是不允许的；
+ */
+
 
 fun main() {
     test()//-1
@@ -68,4 +79,24 @@ fun main() {
     }
 
     test3 { a, b -> println(a - b) }//-1
+
+    println("-----------")
+
+    test4(1, 2, 3, 4)
+    test4(a = 1, b = 2, c = 3, d = 4)
+    test4(a = 1, d = 5)
+
+    println("-----------")
+
+    test4("a", "b", "c")
+    test4(string = arrayOf("e", "f", "g"))
+    val arrays = arrayOf("h", "i", "j")
+    //可变参数可以借助与分散运算符（spread operator）以具名参数的形式传递。散运算符：数组变量前面有一个✳号
+    test4(*arrays)
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// 可变参数
+fun test4(vararg string: String) {
+    string.forEach { println(it) }
 }

@@ -89,7 +89,7 @@ fun main() {
     println("-----------")
 
     test4("a", "b", "c")
-    test4(string = arrayOf("e", "f", "g"))
+    test4(string = *arrayOf("e", "f", "g"))
     val arrays = arrayOf("h", "i", "j")
     //可变参数可以借助与分散运算符（spread operator）以具名参数的形式传递。散运算符：数组变量前面有一个✳号
     test4(*arrays)

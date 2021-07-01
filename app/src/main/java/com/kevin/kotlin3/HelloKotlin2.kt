@@ -51,19 +51,24 @@ class infixTest(private var a: Int) {
     infix fun add(b: Int) = this.a + b
 }
 
-fun main() {
-    val infixTest = infixTest(1)
-    //下面两种方式是等价的
-    println(infixTest.add(5))
-    println(infixTest add 5)//中缀调用法
-}
+//fun main() {
+//    val infixTest = infixTest(1)
+//    //下面两种方式是等价的
+//    println(infixTest.add(5))
+//    println(infixTest add 5)//中缀调用法
+//}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // 内联函数
 /**
  * 内联函数（inline function）
- * 
+ *
  */
+fun myCalculate(a: Int, b: Int) = a + b
+
+fun main() {
+    println(myCalculate(1, 2))
+}
 
 
 

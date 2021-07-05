@@ -1,5 +1,7 @@
 package com.kevin.kotlin3
 
+import java.lang.StringBuilder
+
 /**
  * other：Kevin
  * create time：2021/7/1
@@ -25,6 +27,7 @@ val mayReturnNull: (Int, Int) -> Int? = { _, _ -> null }//返回值为空
 
 val functionMaybeNull: ((Int, Int) -> Int)? = null//整个函数类型都可能为null
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // 高阶函数
 /**
@@ -40,15 +43,32 @@ fun myCalculate(a: Int, b: Int, calculate: (Int, Int) -> Int): Int {
  * myCalculate整个函数返回一个Int值。
  */
 
-fun main() {
-    println(myCalculate(2, 3) { x, y -> x + y })//5
-    println(myCalculate(2, 3) { x, y -> x - y })//-1
-    println(myCalculate(2, 3) { x, y -> x * y })//6
+//fun main() {
+//    println(myCalculate(2, 3) { x, y -> x + y })//5
+//    println(myCalculate(2, 3) { x, y -> x - y })//-1
+//    println(myCalculate(2, 3) { x, y -> x * y })//6
+//}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// 把string字符串列里面的数字过滤掉
+const val s = "abc2def9xy7"
+fun String.filter(predicate: (Char) -> Boolean): String {
+    val sb = StringBuilder()
+    for (index in 0 until length) {
+        val element = get(index)
+        if (predicate(element)) {
+            sb.append(element)
+        }
+    }
+    return sb.toString()
 }
 
-/**
- *
- */
+fun main() {
+//    val compile = Pattern.compile("[^a-zA-Z]")
+//    println(compile.matcher(s).replaceAll(""))
+    s.filter { it.isLetter() }
+}
 
 
 

@@ -37,8 +37,7 @@ open class Fruit {
     }
 
     // 如果一个类的方法不想被覆盖，可以用final修饰方法名
-    // final fun expirationDate() {
-    fun expirationDate() {
+    final fun expirationDate() {
         println("1 month")
     }
 }
@@ -47,12 +46,15 @@ class Apple : Fruit() {
     override fun name() {
         println("apple")
     }
+
+//    override fun expirationDate(){//编译报错
+//    }
 }
 
 fun main(args: Array<String>) {
     var apple = Apple()
     apple.name()
-    apple.expirationDate()
+//    apple.expirationDate()
 //    打印：
 //    apple
 //    1 month

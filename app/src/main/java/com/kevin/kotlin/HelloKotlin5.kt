@@ -63,8 +63,6 @@ class TheClass {
     }
 }
 
-
-
 /*
 * 可见性 visibility
 * Kotlin提供了四种可见性修饰符：private, protected, internal, public

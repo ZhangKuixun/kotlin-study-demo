@@ -143,7 +143,7 @@ class ParameterizedConsumer<in T> {
  * 深入讲解：协变和逆变
  * Kotlin：声明处协变（declaration-site variance）；Java：使用处协变
  *
- * Kotlin中的out关键字叫做variance annotation，因为他是在参数声明处所指定的，因此我们称之为协变（declaration-site variance）
+ * Kotlin中的out关键字叫做variance annotation，在参数声明处指定的（declaration-site variance）
  * Java是使用处协变（use-site variance），类型通配符才能写协变。
  *
  */
@@ -205,7 +205,7 @@ class ApplePearProducer : Producer<ApplePear> {
 //     * 分析：var producer2: Producer<Fruit> = AppleProducer()
 //     * 把AppleProducer()的实例赋值给了Producer<Fruit>类型的producer2，当调用producer2的produce方法的时候，返回的是Apple类型，
 //     * producer2是Producer<Fruit>类型，本来produce方法应该返回Fruit类型，但是，当程序真正在运行期的时候
-//     * AppleProducer()返回的是Apple类型，根据多态，本来要返回Fruit，可以返回Apple，对于使用者的角度来看，
+//     * AppleProducer()返回的是Apple类型，根据多态，本来要返回Fruit，可以返回Apple，从使用者的角度来看，
 //     * 他看到的返回值就是Fruit类型。
 //     */
 //    var producer1: Producer<Fruit> = FruitProducer()

@@ -73,9 +73,9 @@ class infixTest(private var a: Int) {
  */
 inline fun myCalculate(a: Int, b: Int) = a + b
 
-fun main() {
-    println(myCalculate(1, 2))
-}
+//fun main() {
+//    println(myCalculate(1, 2))
+//}
 
 
 

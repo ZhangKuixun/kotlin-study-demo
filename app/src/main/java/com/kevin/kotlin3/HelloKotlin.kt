@@ -33,7 +33,8 @@ class MyClass(myInterface: MyInterface) : MyInterface by myInterface {
 
 //fun main() {
 //    val myInterfaceImpl = MyInterfaceImpl("ZhangSan")
-//    MyClass(myInterfaceImpl)
+//    val myClass = MyClass(myInterfaceImpl)
+//    myClass.myPrint()//hello world
 //}
 
 /**
@@ -63,8 +64,8 @@ class MyPropertyClass {
 
 //fun main() {
 //    val myPropertyClass = MyPropertyClass()
-//    myPropertyClass.str = "hello world"
-//    println(myPropertyClass.str)
+//    myPropertyClass.str = "hello world"//MyPropertyClass, new value is hello world
+//    println(myPropertyClass.str)//MyPropertyClass, your delegate name is str
 //}
 /**
  * MyDelegate的getValue、setValue必须这样写，如果MyDelegate不写，它的父类会定义这两个方法。
@@ -86,8 +87,8 @@ val myLazyValue: Int by lazy(LazyThreadSafetyMode.NONE) {
 }
 
 //fun main() {
-//    println(myLazyValue)
-//    println(myLazyValue)
+//    println(myLazyValue)//hello world 30
+//    println(myLazyValue)//30
 //}
 /**
  * LazyThreadSafetyMode 延迟线程安全模式
@@ -106,7 +107,7 @@ class MyPerson {
 //fun main() {
 //    val myPerson = MyPerson()
 //    myPerson.address = "suzhou"
-//    println(myPerson.address)
+//    println(myPerson.address)//suzhou
 //}
 /**
  * Delegates.notNull
@@ -133,19 +134,19 @@ class Person2 {
 
 //fun main() {
 //    val person = Person()
-//    person.age = 30
-//    person.age = 40
+//    person.age = 30//age, oldValue: 20, newValue: 30
+//    person.age = 40//age, oldValue: 30, newValue: 40
 //
 //    println("----------")
 //
 //    val person2 = Person2()
-//    println(person2.age)
+//    println(person2.age)//20
 //    println("--")
 //    person2.age = 40
-//    println(person2.age)
+//    println(person2.age)//40
 //    println("--")
 //    person2.age = 30
-//    println(person2.age)
+//    println(person2.age)//40
 //}
 
 /**
@@ -186,23 +187,23 @@ class Student2(map: MutableMap<String, Any?>) {
 //            "birthday" to Date()
 //        )
 //    )
-//    println(student.name)
-//    println(student.address)
-//    println(student.age)
-//    println(student.birthday)
+//    println(student.name)//zhangsan
+//    println(student.address)//beijing
+//    println(student.age)//20
+//    println(student.birthday)//Sun Jul 11 12:20:08 CST 2021
 //
 //    println("-----------")
 //
 //    val map = mutableMapOf<String, Any?>("address" to "beijing")
 //    val student2 = Student2(map)
-//    println(map["address"])
-//    println(student2.address)
+//    println(map["address"])//beijing
+//    println(student2.address)//beijing
 //
 //    println("--")
 //
 //    student2.address = "shanghai"
-//    println(map["address"])
-//    println(student2.address)
+//    println(map["address"])//shanghai
+//    println(student2.address)//shanghai
 //}
 /**
  * 将属性存储到map中
@@ -257,11 +258,11 @@ class PropertyDelegate : ReadOnlyProperty<People, String> {
 
 class PeopleLauncher {
     operator fun provideDelegate(thisRef: People, property: KProperty<*>): PropertyDelegate {
-        println("welcome")
+        println("welcome")//输出两次
 
         when (property.name) {
-            "name", "address1" -> return PropertyDelegate()
-            else -> throw Exception("not valid name")
+            "name", "address1" -> return PropertyDelegate()//输出一次name
+            else -> throw Exception("无效的名称")//输出一次
         }
     }
 }
@@ -272,9 +273,9 @@ class People {
 }
 
 fun main() {
-    val people = People()
-    println(people.name)
-    println(people.address)
+    val people = People()//welcome  welcome
+//    println(people.name)
+//    println(people.address)
 }
 /**
  * PeopleLauncher是一个提供委托的类，他没有提供getValue和setValue的方法，只有一个provideDelegate方法，

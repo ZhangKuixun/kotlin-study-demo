@@ -16,7 +16,7 @@ package com.kevin.kotlin3
 //    strings.filter { it.length > 3 }.forEach {
 //        sum += it
 //    }
-//    println(sum)
+//    println(sum)//helloworldjava
 //}
 /**
  * java中，lambda表达式和匿名函数可以访问到自己外层的变量，这些变量不能被修改。

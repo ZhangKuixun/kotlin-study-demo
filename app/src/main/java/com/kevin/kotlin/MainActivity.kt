@@ -3,7 +3,7 @@ package com.kevin.kotlin
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.kevin.kotlin.basics.databinding.ActivityMainBinding
+import com.kevin.kotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

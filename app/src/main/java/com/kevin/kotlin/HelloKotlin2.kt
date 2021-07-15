@@ -2,7 +2,6 @@ package com.kevin.kotlin
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.kevin.kotlin.basics.R
 
 class HelloWorldDemo2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -30,10 +30,10 @@ package com.kevin.kotlin3
 //
 // kotlin提供了一个功能：可以通过指定的接收者对象来调用一个函数字面值，
 // 在函数字面值内部，你可以调用接收者对象的方法，不用使用额外的修饰符，这一点非常类似于扩展函数。
-//fun main() {
-//    val subtract: Int.(other: Int) -> Int = { other -> this - other }
-//    println(1.subtract(3))//-1
-//}
+fun main() {
+    val subtract: Int.(other: Int) -> Int = { other -> this - other }
+    println(1.subtract(3))//-2
+}
 /**
  * 分析：
  * "val subtract:"是变量subtract。
@@ -64,15 +64,15 @@ package com.kevin.kotlin3
 // 带有接收者类型的函数的非字面值可以作为参数进行传递，前提是所需要接收函数的地方应该有一个接收者类型的参数，反之也可以。
 // 比如：String.(Int) -> Boolean 与 (String, Int) -> Boolean 等价。
 
-fun main() {
-    val myEquals: String.(Int) -> Boolean = { param -> this.toIntOrNull() == param }
-    println("345".myEquals(345))//true
-
-    println("------------------")
-
-    fun myTest(op: (String, Int) -> Boolean, a: String, b: Int, c: Boolean) = println(op(a, b) == c)
-    myTest(myEquals, "200", 200, true)//true
-}
+//fun main() {
+//    val myEquals: String.(Int) -> Boolean = { param -> this.toIntOrNull() == param }
+//    println("345".myEquals(345))//true
+//
+//    println("------------------")
+//
+//    fun myTest(op: (String, Int) -> Boolean, a: String, b: Int, c: Boolean) = println(op(a, b) == c)
+//    myTest(myEquals, "200", 200, true)//true
+//}
 /**
  * 分析：
  * myEquals传入myTest，执行myTest函数体的op，op指向的是传入的myEquals

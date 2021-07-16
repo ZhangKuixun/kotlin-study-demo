@@ -90,13 +90,13 @@ fun main() {
 
     test4("a", "b", "c")
     //可变参数可以借助分散运算符（spread operator）以具名参数的形式传递。散运算符：数组变量前面有一个星号，它可以把数据打散。
-    test4(string = *arrayOf("e", "f", "g"))
+    test4(str = *arrayOf("e", "f", "g"))
     val arrays = arrayOf("h", "i", "j")
     test4(*arrays)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // 可变参数
-fun test4(vararg string: String) {
-    string.forEach { println(it) }
+fun test4(vararg str: String) {
+    str.forEach { println(it) }
 }

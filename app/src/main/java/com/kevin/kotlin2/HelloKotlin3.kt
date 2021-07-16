@@ -67,16 +67,6 @@ class MyGeneric<T>(t: T) {
  * 生产者使用 ? extends E，消费者使用 ? super E。
  *
  */
-//fun main() {
-//    val myGeneric = MyGeneric("hello world")// 借助于kotlin的类型推断
-//    println(myGeneric.varible)
-//
-//    println("-------------")
-//
-//    val myClass = MyClass<String, Number>("abc", 1)
-//    myTest(myClass)
-//}
-
 class MyClass<out T, in M>(t: T, m: M) {
     private var t: T
     private var m: M
@@ -101,6 +91,10 @@ fun myTest(myClass: MyClass<String, Number>) {
     println(myObject.get())
 }
 
+//fun main() {
+//    val myClass = MyClass<String, Number>("abc", 1)
+//    myTest(myClass)
+//}
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
  * 分析in、out
@@ -149,7 +143,7 @@ class ParameterizedConsumer<in T> {
  */
 
 /**
- * 如果泛型类只是将泛型作为其方法的输出类型，用out。
+ * 只将泛型作为方法的输出类型，用out。
  * produce = output = out
  */
 interface Producer<out T> {
@@ -157,7 +151,7 @@ interface Producer<out T> {
 }
 
 /**
- * 如果泛型类只是将泛型类型作为其方法的输入类型，用in。
+ * 只将泛型类型作为方法的输入类型，用in。
  * consume = input = in
  */
 interface Consumer<in T> {
@@ -166,7 +160,7 @@ interface Consumer<in T> {
 
 /**
  * 不变：
- * 如果泛型类型同时将泛型类型作为其方法的输入类型与输出类型，使用out与in来修饰泛型。
+ * 同时将泛型作为方法的输入类型与输出类型，使用out与in修饰泛型。（不重要）
  */
 interface ProducerConsumer<T> {
     fun produce(): T
@@ -275,6 +269,10 @@ fun copy(from: Array<out Any>, to: Array<Any>) {
 //    for (item in to) {
 //        println(item)
 //    }
+//    //hello0
+//    //hello1
+//    //hello2
+//    //hello3
 //
 //    copy(from, to)
 //
@@ -284,15 +282,28 @@ fun copy(from: Array<out Any>, to: Array<Any>) {
 //    for (item in array) {
 //        println(item)
 //    }
+//    //hello
+//    //hello
+//    //hello
+//    //hello
+//
 //    setValue(array, 0, "world")
 //    for (item in array) {
 //        println(item)
 //    }
+//    //world
+//    //hello
+//    //hello
+//    //hello
 //
 //    val array2: Array<Any> = Array(4) { "hello$it" }
 //    for (item in array2) {
 //        println(item)
 //    }
+//    //hello0
+//    //hello1
+//    //hello2
+//    //hello3
 //    setValue(array2, 1, "world")
 //}
 
@@ -317,9 +328,9 @@ fun setValue(to: Array<in String>, index: Int, value: String) {
  * 泛型最后一课
  *
  * star projection（星投影）
- * Star<out T>：如果T的上界是TUpper，Star<out T>就可以写成Star<*>，读取过来的值都当作了TUpper类型。
+ * Star<out T>：假如T的上界是TUpper，Star<out T>就可以写成Star<*>，读取过来的值都当作了TUpper类型。
  *
- * Star<in T>: Star<*>，就相当于Star<in Nothing>，Nothing：没有实例，一个什么都不是的值，不能向其中写入任何值。
+ * Star<in T>：Star<*>就相当于Star<in Nothing>，Nothing：没有实例，一个什么都不是的值，不能向其中写入任何值。
  *
  * Star<T>，如果T的上界是TUpper，那么Star<*>相当于读取时的Star<out TUpper>，以及写入时的Star<in Nothing>，不能往里写任何内容。
  */
@@ -340,24 +351,24 @@ class Star5<T>(private var t: T) {
     }
 }
 
-//fun main() {
-//    val star: Star<Number> = Star<Int>()
-//    val star1: Star<*> = star
-//
-//    val star3: Star2<Int> = Star2<Number>()
-//    val star4: Star2<*> = star3
-//
-//    // star4.setValue(3) 不能写入Star2<in Nothing>
-//    val star6: Star5<String> = Star5("hello")
-//    val star7: Star5<*> = star6
-//
-//    star7.getValue()
-//    // star7.setValue() 不能写入Star2<in Nothing>
-//
-//    val list: MutableList<*> = mutableListOf("hello", "world")
-//    println(list[0])
-//    // list[0]="test" 不能写入list<Nothing>[0]
-//}
+fun main() {
+    val star: Star<Number> = Star<Int>()
+    val star1: Star<*> = star
+
+    val star3: Star2<Int> = Star2<Number>()
+    val star4: Star2<*> = star3
+
+    // star4.setValue(3) 不能写入Star2<in Nothing>
+    val star6: Star5<String> = Star5("hello")
+    val star7: Star5<*> = star6
+
+    star7.getValue()
+    // star7.setValue() 不能写入Star2<in Nothing>
+
+    val list: MutableList<*> = mutableListOf("hello", "world")
+    println(list[0])//hello
+    // list[0]="test" 不能写入list<Nothing>[0]
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -377,19 +388,18 @@ class MyStorage<out T>(private var t: T) {
 //fun main() {
 //    val myStorage1: MyStorage<Int> = MyStorage(5)
 //    val myStorage2: MyStorage<Any> = myStorage1
-//    println(myStorage2.getValue())// 5
+//    println(myStorage2.getValue())//5
 //
 //    myStorage2.setValue("hello")
-//    println(myStorage2.getValue())// hello
+//    println(myStorage2.getValue())//hello
 //}
 /**
- * MyStorage<out T>中的T已经被申明为协变类型了，如果想要修改T，写法：setValue(t: @UnsafeVariance T)，
- * 表示处于协变类型的T作为一个普通方法的输入参数。
+ * MyStorage<out T>中的T已经被申明为协变类型，如果想要修改T，@UnsafeVariance T表示协变类型的T变成了普通的参数。
  * @UnsafeVariance ：压制协变、逆变的编译错误。
  *
  * 为啥可以这样做？
- * Java泛型的特点，在一个类中声明好了一个泛型，真正进入到字节码的时候，泛型是不存在的，在字节码的层面上，
- * 泛型类型都被当作Object类型来看待，取出来的时候，强制类型向下转换，转换成真正的类型。泛型不会保存到字节码的。
+ * Java泛型的特点，在一个类中声明好了一个泛型，真正进入到字节码的时候，泛型是不存在的，都被当作Object看待，
+ * 取出来时，强制类型向下转换，转换成真正的类型。
  */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -415,10 +425,12 @@ fun <T> getValue(item: T): T {
 
 class UpperBoundsClass<T : List<T>> {
 }
-fun main() {
-    //上界
-    val upperBoundsClass = UpperBoundsClass<AbstractList<String>>()
-}
+
+//fun main() {
+//    //上界
+//    val upperBoundsClass = UpperBoundsClass<AbstractList<String>>()
+//}
+
 /**
  * 定义好一个泛型，可以定义一个泛型的上界。
  * UpperBoundsClass<T : List<T>>：T的上界就是List。

@@ -29,7 +29,7 @@ abstract class MyAbstractClass {
 //fun main() {
 //    val myObject = object : MyInterface {
 //        override fun myPrint(i: Int) {
-//            println("i的值是$i")
+//            println("i的值是$i")//i的值是100
 //        }
 //    }
 //    myObject.myPrint(100)
@@ -44,14 +44,14 @@ abstract class MyAbstractClass {
 //        var myProperty = "Hello world"
 //        fun myMethod() = "myMethod"
 //    }
-//    println(myObject2.myProperty)
-//    println(myObject2.myMethod())
+//    println(myObject2.myProperty)//Hello world
+//    println(myObject2.myMethod())//myMethod
 //
 //    println("-------同时实现接口和抽象类------")
 //
 //    val myObject3 = object : MyInterface, MyAbstractClass() {
 //        override fun myPrint(i: Int) {
-//            println("i的值是$i")
+//            println("i的值是$i")//i的值是20
 //        }
 //
 //        override val age: Int
@@ -61,9 +61,9 @@ abstract class MyAbstractClass {
 //            println("printMyAbstractClassInfo invoked")
 //        }
 //    }
-//    println(myObject3.myPrint(20))
-//    println(myObject3.age)
-//    println(myObject3.printMyAbstractClassInfo())
+//    myObject3.myPrint(20)
+//    println(myObject3.age)//30
+//    myObject3.printMyAbstractClassInfo()//printMyAbstractClassInfo invoked
 //}
 
 /**
@@ -120,16 +120,16 @@ class MyClass2 {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // 外层变量不用申明为final
-fun main() {
-    var i = 100
-    val myObject = object {
-        fun myMethod() {
-            i++
-        }
-    }
-    myObject.myMethod()
-    println(i)
-}
+//fun main() {
+//    var i = 100
+//    val myObject = object {
+//        fun myMethod() {
+//            i++
+//        }
+//    }
+//    myObject.myMethod()
+//    println(i)
+//}
 /**
  * 类似于Java的匿名内部类，Kotlin对象表达式中的代码是可以访问到外层的变量，外层变量不用申明为final。
  */

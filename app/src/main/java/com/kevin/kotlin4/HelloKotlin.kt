@@ -61,7 +61,7 @@ fun main() {
 
     println("-------------")
 
-    //kotlin允许我们为解构整体指定类型，也可以为一个具体的参数（component）指定类型。
+    //kotlin允许解构整体指定类型，也可以为一个具体的参数（component）指定类型。
     //下面这个mapValues也才是完整的写法，也可以省略解构的类型。
     map.mapValues { (_, value): Map.Entry<String, String> -> "$value person" }
         .forEach { println(it) }

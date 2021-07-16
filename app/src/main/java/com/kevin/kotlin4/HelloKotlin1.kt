@@ -11,7 +11,7 @@ package com.kevin.kotlin4
 // 2.要清楚一点的是：区分开可变集合的只读视图与实际真正不可变集合。
 
 fun main() {
-    // 可变列表
+    // 可变集合
     val stringList: MutableList<String> = mutableListOf("hello", "world", "kotlin")
     // 可变集合的只读视图。List<out E>是协变类型，只能取元素。
     val readOnlyView: List<String> = stringList
@@ -39,13 +39,13 @@ fun main() {
     println("---------------")
 
     // 快照
-    // 比如list，它有toList方法，toList方法是一个扩展方法，它只会复制原集合的每一个元素，返回来的集合，是永远不会发生变更的。
+    // 比如list，它有toList方法，toList方法是一个扩展方法，它只会复制原集合的每一个元素，返回新集合，是永远不会发生变更的。
     val items = mutableListOf("a", "b", "c")
     val items2 = items.toList()
     items.add("d")
-    println(items)
-    println(items2)
-    //[a, b, c, d]
-    //[a, b, c]
+    println(items)//[a, b, c, d]
+    println(items2)//[a, b, c]
+
+    
 }
 

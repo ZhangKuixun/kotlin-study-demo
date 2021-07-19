@@ -18,9 +18,9 @@ package com.kevin.kotlin10
 class MyClass(val x: Int)
 
 fun main() {
-    // y表示引用了MyClass类里面的属性x，真正使用y，必须要有一个类的实例，类才真正的创建出来。
+    // y表示引用了MyClass类里面的属性x，想要真正使用MyClass，必须要有一个类的实例，类才真正的创建出来。
     val y = MyClass::x
-    // y.get()方法传入MyClass的实例，能获取到MyClass的y值。
+    // y.get()方法传入MyClass的实例，就能获取到MyClass的y值。
     println(y.get(MyClass(1)))
 }
 /**

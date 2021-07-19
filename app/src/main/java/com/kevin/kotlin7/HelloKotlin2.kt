@@ -15,7 +15,7 @@ package com.kevin.kotlin7
  * 原生类型数组：
  * Kotlin提供了原生类型数组避免自动装箱和拆箱的成本：IntArray，DoubleArray，CharArray...。
  * IntArray，DoubleArray...和Array没有任何关系，相互独立。IntArray面对JVM时，是一个原生类型数组（int[]）；Array面对JVM时，是一个java数组。
- * IntArray被编译时，会转成Ing[]；DoubleArray被编译时，会转成Double[]...。
+ * IntArray被编译时，会转成Int[]；DoubleArray被编译时，会转成Double[]...。
  *
  */
 fun main() {

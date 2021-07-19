@@ -15,7 +15,7 @@ class HelloJava1 {
 
         List<Integer> integers = HelloKotlin1Kt.myFilter2(new ArrayList<>());
         System.out.println(integers);//[1, 2]
-        // java调用kotlin的多个相同函数名的扩展函数，只能调用扩展函数生成的名字，@JvmName("myFilter2")的myFilter2。
+        // java调用kotlin的多个相同函数名的扩展函数，只能调用注解生成的名字，@JvmName("myFilter2")的myFilter2。
 
     }
 }

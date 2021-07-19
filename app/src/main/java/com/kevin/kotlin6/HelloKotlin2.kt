@@ -32,7 +32,7 @@ annotation class MyAnnotation3(val str: String, val myAnnotaion2: MyAnnotaion2)
 class MyClass5
 
 /**
- * Kotlin注解的构造方法的参数，不能是可空类型，JVM不支持存储null的注解属性值。
+ * Kotlin注解的构造方法的参数，不支持可空类型，JVM不支持存储null的注解属性值。
  * 如果注解当做其他注解的参数，参数写的注解名字没有@符号。
  */
 
@@ -54,9 +54,9 @@ class MyClass7(@field:MyAnnotation val arg1: String,// 注解Java field
 /**
  * 注解的使用处目标（use-sit target）
  * 对类的属性或主构造方法的参数声明注解时，会存在多个java元素可以通过对应的kotlin元素生成出来，
- * 在生成的java字节码中会有多个可能的位置生成相应的注解。想精确指定如何生成注解，可以使用注解的使用处目标方式来实现。
+ * 在生成的java字节码中会有多个可能的位置生成相应的注解。想精确指定如何生成注解，使用注解的使用处目标方式来实现。
  *
- * 可以注解类文件，写在整个类的第一行。
+ * 可以注解类文件，写在整个文件的第一行。
  * @file:JvmName("NewName")
  * 表示最终编译生成的字节码，用括号里的名字"HelloKotlin2"，不是原文件名的名字"HelloKotlin2.kt"。
  *

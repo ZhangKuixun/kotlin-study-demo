@@ -16,7 +16,7 @@ import java.lang.NumberFormatException
  *
  * throw表达式是Nothing类型(不包含任何值的类型)，只表示代码永远不会到达的位置，不会返回。
  * val str2 = str ?: throw IllegalArgumentException("值不能为空")
- * 如果str=null，throw把异常抛到main方法的外面，报异常，程序终止，不会把值给str。
+ * 如果str=null，throw把异常抛到main方法的外面，报异常，程序终止，不会把值给str2。
  *
  * 写代码时，可以用Nothing标记没有返回值的函数。
  *

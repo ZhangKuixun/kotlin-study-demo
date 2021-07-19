@@ -41,5 +41,5 @@ fun main() {
     println(listOf<String>().myFilter())//[hello, world]
     println(listOf<Int>().myFilter())//[1, 2]
     // kotlin调用kotlin的扩展函数，不用调用注解生成的名字，用泛型就能判断出调用扩展函数名字，listOf<Int>().myFilter()。
-    // java调用kotlin的多个相同函数名的扩展函数，只能调用扩展函数生成的名字，@JvmName("myFilter2")的myFilter2。
+    // java调用kotlin的多个相同函数名的扩展函数，只能调用注解生成的名字，@JvmName("myFilter2")的myFilter2。
 }

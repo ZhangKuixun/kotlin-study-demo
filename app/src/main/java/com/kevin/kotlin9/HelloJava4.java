@@ -17,7 +17,7 @@ class HelloJava4 {
             // Exception 'java.io.FileNotFoundException' is never thrown in the corresponding try block
             // 没有在相应的语句块中抛出FileNotFoundException异常。
             // 没有在方法名字上抛出异常，又不能去捕获。
-            // 解决：在kotlin需要抛出异常的地方用注解:@Throws(xxxException::class)
+            // 解决：在kotlin需要抛出异常的方法上面写注解@Throws(xxxException::class)
             e.printStackTrace();
         }
     }

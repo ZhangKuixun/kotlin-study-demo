@@ -5,7 +5,7 @@ package com.kevin.kotlin7
  * create time：2021/7/17
  * describe：
  * kotlin调用java的异常：
- * kotlin只有运行时异常，如果kotlin调用了java抛出非运行时异常的方法，kotlin可以不用捕获异常。
+ * kotlin调用java抛出非运行时异常，kotlin不用捕获异常。
  *
  */
 fun main() {

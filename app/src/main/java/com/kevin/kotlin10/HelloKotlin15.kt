@@ -1,8 +1,6 @@
 package com.kevin.kotlin10
 
-import kotlin.reflect.full.functions
 import kotlin.reflect.full.memberFunctions
-import kotlin.reflect.full.memberProperties
 
 
 /**

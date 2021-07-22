@@ -43,12 +43,12 @@ fun 小范围类型的值禁止付给大范围类型的值() {
 //        x=y// 报错
     x = y.toInt()
 
-    print(x)
+    print(x)//20
 }
 
 fun 修改val() {
     val m = intArrayOf(1, 2, 3)
-//        m = intArryOf(4, 5)// 报错
+//    m = intArrayOf(4, 5, 3)//报错，不能修改val
     m[0] = 4
 }
 

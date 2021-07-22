@@ -8,11 +8,9 @@ import java.util.*
  * describe：
  */
 fun main() {
-//        val textView = TextView(this)
-//        setContentView(textView)
-//        textView.text = 测试Any和转大写("hello")
-//        测试Any和转大写(2)
+    测试Any和转大写(2)
     数组()
+    区间()
 }
 
 // 注意：Kotlin的Any和java的Object不是一回事，不是同一种语言
@@ -63,7 +61,7 @@ fun 简化when语法(str: String): String =
     }
 
 fun 其他when表达式() {
-    val a = 6;
+    val a = 6
     var result = when (a) {
         1 -> {
             println("a=1")
@@ -92,20 +90,25 @@ fun 区间() {
     val a = 5
     val b = 10
     for (i in a..b) {
-        println(i)
+        println(i)//5 6 7 8 9 10
     }
 
-    // 报错，不能在for循环中用!in
-//        for (i !in a..b) {
-//            println()
-//        }
+    println("--------")
+
+    // 编译报错，不能在for循环中用!in
+//    for (i !in a..b) {
+//    }
+
+    println("--------")
 
     for (i in a..b step 2) {
-        println(i)
+        println(i)//5 7 9
     }
 
+    println("--------")
+
     for (i in 10 downTo 2 step 4) {
-        println(i)
+        println(i)//10 6 2
     }
 }
 
@@ -115,11 +118,3 @@ fun 找出长度大于5的操作() {
         .forEach { println(it) }
 }
 
-// \n也会失效
-fun 按照原有的格式输出字符串() {
-    val b: String = """ helllo
-            |\n world
-            |    welcome
-        """
-    println(b)
-}

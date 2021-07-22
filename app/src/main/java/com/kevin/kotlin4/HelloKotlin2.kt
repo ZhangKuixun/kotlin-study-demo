@@ -1,34 +1,37 @@
 package com.kevin.kotlin4
 
+import kotlin.reflect.KProperty
+
 /**
  * other：Kevin
- * create time：2021/7/16
+ * create time：2021/6/27
  * describe：
- * 集合的扩展方法
+ * 属性委托
  */
-fun main() {
-    val list = listOf(1, 2, 3, 4)
-    println(list.first())//1
-    println(list.last())//4
-    list.filter { it % 2 == 0 }.forEach { println(it) }//2 4
+class MyDelegate {
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): String =
+        "$thisRef, your delegate name is ${property.name}"
 
-    println("-------")
-    val myList = mutableListOf(1, 2, 3)
-    // 返回一个原集合，如果原集合里面有null元素，抛出异常
-    println(myList.requireNoNulls())//[1, 2, 3]
-
-    // 如果没有元素匹配none方法体的判断，返回true
-    if (myList.none { it > 10 }) {
-        println("没有大于10的")//没有大于10的
-    }
-
-    println(myList.firstOrNull())//1
-    println(myList.lastOrNull())//3
-
-    println("-----------------")
-    val hashMap = hashMapOf("hello" to 1, "world" to 2)
-    println(hashMap["hello"])//1
-
-    val myHashMap: HashMap<String, Int> = HashMap(hashMap)
-    println(myHashMap)//{hello=1, world=2}
+    operator fun setValue(thisRef: Any?, property: KProperty<*>, value: String) =
+        println("$thisRef, new value is $value")
 }
+
+class MyPropertyClass {
+    var str: String by MyDelegate()
+}
+
+fun main() {
+    val myPropertyClass = MyPropertyClass()
+    myPropertyClass.str = "hello world"//MyPropertyClass, new value is hello world
+    println(myPropertyClass.str)//MyPropertyClass, your delegate name is str
+}
+/**
+ * MyDelegate的getValue、setValue必须这样写，如果MyDelegate不写，它的父类会定义这两个方法。
+ * MyDelegate的operator，表示运算符，myPropertyClass.str调用的是MyDelegate的setValue方法，主要就是operator在起作用。
+ *
+ * 有四种情况在实际开发中比较有作用：
+ * 1.延迟属性。
+ * 2.可观测属性。当给一个属性赋值的时候，这个属性就相当于一个监听器一样，在赋值之前或者赋值之后，监听器收到相应的通知，执行预先或事后的处理。
+ * 3.非空属性。
+ * 4.map委托。
+ */

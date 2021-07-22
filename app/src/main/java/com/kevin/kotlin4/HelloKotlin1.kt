@@ -2,51 +2,41 @@ package com.kevin.kotlin4
 
 /**
  * other：Kevin
- * create time：2021/7/4
+ * create time：2021/6/27
  * describe：
+ * 委托（delegation）
+ * 自己有事情让A去完成，A让B去完成，这就是委托
+ *
+ * 类委托
  */
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// 可变集合
-// 1.kotlin严格区分可变集合和不可变集合。
-// 2.要清楚一点：区分开可变集合的只读视图与实际真正不可变集合。
-
-fun main() {
-    // 可变集合
-    val stringList: MutableList<String> = mutableListOf("hello", "world", "kotlin")
-    // 可变集合的只读视图。List<out E>是协变类型，只能取元素。
-    val readOnlyView: List<String> = stringList
-    println(stringList)
-    stringList.add("java")
-    println(readOnlyView)
-    //[hello, world, kotlin]
-    //[hello, world, kotlin, java]
-
-    // 只有MutableCollection接口才有增删改查的方法，可变集合都实现了这个接口。
-    // readOnlyView.clear()//报错
-    // stringList.clear()//正常
-
-    println("---------------")
-
-    // 不可变集合：
-    // 创建HashSet
-    val strings: HashSet<String> = hashSetOf("a", "b", "c", "d")
-    println(strings)
-    //[a, b, c, d]
-
-    // 协变可以把子类型的值赋值给父类型的值
-    val s = listOf("a", "b")
-    val s2: List<Any> = s
-
-    println("---------------")
-
-    // 快照
-    // 比如list，它有toList方法，toList方法是一个扩展方法，它只会复制原集合的每一个元素，返回新集合，是永远不会发生变更的。
-    val items = mutableListOf("a", "b", "c")
-    val items2 = items.toList()
-    items.add("d")
-    println(items)//[a, b, c, d]
-    println(items2)//[a, b, c]
-
-    
+interface MyInterface {
+    fun myPrint()
 }
 
+class MyInterfaceImpl(var str: String) : MyInterface {
+    override fun myPrint() {
+        println("welcome $str")
+    }
+}
+
+class MyClass(myInterface: MyInterface) : MyInterface by myInterface {
+    override fun myPrint() {
+        println("hello world")
+    }
+}
+
+fun main() {
+    val myInterfaceImpl = MyInterfaceImpl("ZhangSan")
+    val myClass = MyClass(myInterfaceImpl)
+    myClass.myPrint()//hello world
+}
+
+/**
+ * class MyClass(myInterface: MyInterface) : MyInterface by myInterface
+ * 分析：
+ * 1.by后面的名字，必须用MyClass的参数myInterface
+ * 2.如果MyClass类自己实现了MyInterface接口的myPrint方法，优先使用自己的
+ *
+ * 委托原理：
+ * by关键字后面的对象实际上会被存储在类的内部，编译器则会把父接口中所有的方法实现出来，并且把实现转移给委托对象去进行。
+ */

@@ -1,7 +1,4 @@
-package com.kevin.kotlin5
-
-import java.lang.Integer.parseInt
-import java.lang.NumberFormatException
+package com.kevin.kotlin5_
 
 /**
  * other：Kevin

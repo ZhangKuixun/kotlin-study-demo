@@ -4,49 +4,68 @@ package com.kevin.kotlin7
  * other：Kevin
  * create time：2021/7/4
  * describe：
+ * 解构声明
  */
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// 可变集合
-// 1.kotlin严格区分可变集合和不可变集合。
-// 2.要清楚一点：区分开可变集合的只读视图与实际真正不可变集合。
+data class MyResult(var result: String, val status: Int)
 
-fun main() {
-    // 可变集合
-    val stringList: MutableList<String> = mutableListOf("hello", "world", "kotlin")
-    // 可变集合的只读视图。List<out E>是协变类型，只能取元素。
-    val readOnlyView: List<String> = stringList
-    println(stringList)
-    stringList.add("java")
-    println(readOnlyView)
-    //[hello, world, kotlin]
-    //[hello, world, kotlin, java]
-
-    // 只有MutableCollection接口才有增删改查的方法，可变集合都实现了这个接口。
-    // readOnlyView.clear()//报错
-    // stringList.clear()//正常
-
-    println("---------------")
-
-    // 不可变集合：
-    // 创建HashSet
-    val strings: HashSet<String> = hashSetOf("a", "b", "c", "d")
-    println(strings)
-    //[a, b, c, d]
-
-    // 协变可以把子类型的值赋值给父类型的值
-    val s = listOf("a", "b")
-    val s2: List<Any> = s
-
-    println("---------------")
-
-    // 快照
-    // 比如list，它有toList方法，toList方法是一个扩展方法，它只会复制原集合的每一个元素，返回新集合，是永远不会发生变更的。
-    val items = mutableListOf("a", "b", "c")
-    val items2 = items.toList()
-    items.add("d")
-    println(items)//[a, b, c, d]
-    println(items2)//[a, b, c]
-
-    
+// 自己的类要方便一点
+fun myMethod(): MyResult {
+    return MyResult("success", 1)
 }
 
+// Pair是kotlin的一个数据类，扩展性和可读性差
+fun myMethod2(): Pair<String, Int> {
+    return Pair("success", 2)
+}
+
+fun main() {
+    val (result, states) = myMethod()
+    println(result)//success
+    println(states)//1
+
+    println("-------------")
+
+    val (result2, states2) = myMethod2()
+    println(result2)//success
+    println(states2)//2
+
+    println("-------------")
+
+    // map中使用解构声明
+    val map = mapOf("a" to "aa", "b" to "bb", "c" to "cc")
+    for ((key, value) in map) {
+        println("key:$key, value:$value")
+    }
+    //key:a, value:aa
+    //key:b, value:bb
+    //key:c, value:cc
+
+    println("-------------")
+
+    map.mapValues { entry -> "${entry.value} hello" }.forEach { println(it) }
+    //a=aa hello
+    //b=bb hello
+    //c=cc hello
+
+    println("-------------")
+
+    map.mapValues { (key, value) -> "$value world" }.forEach { println(it) }
+    //a=aa world
+    //b=bb world
+    //c=cc world
+
+    println("-------------")
+
+    //kotlin允许解构整体指定类型，也可以为一个具体的参数（component）指定类型。
+    //下面这个mapValues也才是完整的写法，也可以省略解构的类型。
+    map.mapValues { (_, value): Map.Entry<String, String> -> "$value person" }
+        .forEach { println(it) }
+
+    map.mapValues { (_, value: String) -> "$value people" }.forEach { println(it) }
+    //a=aa person
+    //b=bb person
+    //c=cc person
+    //a=aa people
+    //b=bb people
+    //c=cc people
+}

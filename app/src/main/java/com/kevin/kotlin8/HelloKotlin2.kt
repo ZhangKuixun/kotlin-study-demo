@@ -22,11 +22,11 @@ fun main() {
     val str: String? = null
 
     // 如果str=null，throw把异常抛到main方法的外面，不会把值给str，代码就结束了
-//    val str2 = str ?: throw IllegalArgumentException("值不能为空")//报错
-//    println(str2)
+    val str2 = str ?: throw IllegalArgumentException("值不能为空")//报错
+    println(str2)
 
     println("----------------")
-//    val str3 = str ?: myMethod("test")
+    val str3 = str ?: myMethod("test")
 
     println("----------------")
 

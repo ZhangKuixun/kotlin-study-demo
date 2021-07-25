@@ -43,4 +43,5 @@ fun main() {
     Thread.sleep(2000)
 
     println("world")
+    //打印：hello；1秒后打印"kotlin coroutines"；2秒后打印"world"
 }

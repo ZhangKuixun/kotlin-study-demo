@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
  *
  * 协程的描述
  * 1.协程像非常轻量级的线程。线程最终是由系统调度的，线程切换或线程阻塞的开销都比较大。
- * 2.协程依赖于线程，但是协程挂起时不需要阻塞线程，几乎是五代价的，协程是由开发者控制的。
+ * 2.协程依赖于线程，但是协程挂起时不需要阻塞线程，几乎是无代价的，协程是由开发者控制的。
  *   所以协程也想是用户态的线程，非常轻量级，一个线程中可以创建任意协程。
  * 3.总而言之：协程可以简化异步编程，可以顺序的表达程序，协程也提供了一种避免阻塞线程并用更廉价、
  *   更可控的操作替代线程阻塞的方法---协程挂起。suspend
@@ -47,7 +47,7 @@ import kotlinx.coroutines.launch
  * 5.Job&Deferred
  *   1.Job，任务，封装了协程中需要执行的代码逻辑。Job可以取消并且有简单的生命周期，他有6种状态。
  *     @see /图片/job.PNG
- *   2.Job完成时是没有返回值的，如果需要返回值的话，应该使用Deferred，它是Job的子类。
+ *   2.Job完成时是没有返回值的，如果需要返回值，使用Deferred，它是Job的子类。
  *   3.public interface Deferred<out T>: Job
  *
  * 6.Coroutine builders
@@ -83,6 +83,7 @@ fun main() {
     Thread.sleep(2000)// 当前线程执行到这里，就暂停了，休眠2秒
 
     println("world")// 2秒后打印
+    //打印：hello；1秒后打印"kotlin coroutines"；2秒后打印"world"
 }
 /**
  * 关键词：

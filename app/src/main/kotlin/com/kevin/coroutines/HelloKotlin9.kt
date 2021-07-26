@@ -15,6 +15,15 @@ import kotlin.concurrent.thread
  * 用线程的方式实现repeat
  */
 fun main() = runBlocking {
+    // 原始写法
+//    repeat(10, action = {
+//        thread {
+//            println(it)
+//            Thread.sleep(1000)
+//            println("A")
+//        }
+//    })
+    // 简化
     repeat(10) {
         thread {
             println(it)

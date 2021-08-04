@@ -49,8 +49,7 @@ fun main() {
  *     override fun onDestroy() {
  *         cancel()
  *     }
- *     /*注意：协程构造器是如何scoped：如果activity被销毁或任何启动的协程在方法中抛出异常了，
- *     然后所有嵌套的协程都会被取消。*/
+ *     /*注意：如果activity被销毁或协程在方法体内抛出异常，然后所有嵌套的协程都会被取消。*/
  *     fun showSomeData() = launch {
  *        draw(data)
  *     }
@@ -72,19 +71,19 @@ fun main() {
  * 可以用在任何地方。
  *
  * 文档：
- * 在后台启动一个新的协程并且会立刻执行，不会阻塞当前线程，并且会以Job形式返回一个协程引用，Job
- * 表示协程代码的执行逻辑，当返回的Job被取消，协程也会被取消。
+ * 在后台启动一个新的协程并立刻执行，不阻塞线程，并且会以Job形式返回一个协程引用，Job表示协程代码的
+ * 执行逻辑，当返回的Job被取消，协程也会被取消。
  *
  * 协程上下文继承CoroutineScope，额外的context元素可以从参数中传入，如果传入的context不包含任何
  * dispatcher或ContinuationInterceptor，会使用第二个参数的默认值Dispatchers.Default。父Job也
  * 会继承CoroutineScope，但是它也可以被coroutineContext覆盖。
  *
- * 在默认情况下，协程会立刻执行。其他的启动选项可以通过指定start参数，参考CoroutineStart了解详细
- * 信息。start参数设置为CoroutineStart.LAZY，延迟启动协程，这种情况下，协程Job会以new的方式被创
- * 建，它会被Job.start函数显式启动，并且当第一次调用Job.join的时候会被隐式启动。
+ * 默认情况下，协程会立刻执行。其他的启动选项可以通过指定start参数，参考CoroutineStart了解详细信
+ * 息。start参数设置为CoroutineStart.LAZY，延迟启动协程，这种情况下，协程Job会以new的方式被创建，
+ * 它会被Job.start函数显式启动，并且当第一次调用Job.join的时候会被隐式启动。
  *
  * 在默认context中，协程中的未捕获异常会取消父Job，除非显式指定处理器CoroutineExceptionHandler，
- * 意思是使用launch函数并且搭配另一个协程的context，那么任何未捕获异常都会导致父协程被取消。
+ * 这意味着launch函数与另一个协程的context一起使用时，然后任何未捕获异常都会导致父协程被取消。
  *
  *
  * CoroutineStart：

@@ -100,10 +100,9 @@ fun main() {
  * println("hello")
  * Thread.sleep(2000)
  * println("world")
- * 1.GlobalScope.launch是一个协程构建器，GlobalScope继承了CoroutineScope，这句代码会在后台
- * 创建一个协程，不会阻塞当前线程，当前线程正常往下进行，GlobalScope.launch执行完毕后，立刻
- * 执行println("hello")，打印"hello"，主线程打印完"hello"后，会立刻执行Thread.sleep(2000)，
- * 让当前线程休眠2000毫秒；
+ * 1.GlobalScope.launch是一个协程构建器，GlobalScope继承了CoroutineScope，GlobalScope.launch
+ * 会在后台创建一个协程，不会阻塞当前线程，当前线程正常往下进行，执行println("hello")，打印"hello"，
+ * 主线程打印完"hello"后，会立刻执行Thread.sleep(2000)，让当前线程休眠2000毫秒；
  * 2.协程创建完毕后，立刻执行协程里面的代码，执行协程的第一行代码是delay(1000)，delay(1000)表
  * 示让当前协程停止1000毫秒，1000毫秒后打印"kotlin coroutines"，协程就执行完了；
  * 3.主线程2000毫秒后执行println("world")，打印"world"；
@@ -117,7 +116,8 @@ fun main() {
  * println("hello")
  * Thread.sleep(500)
  * println("world")
- * 如果把线程休眠时间改成500毫秒，协程阻塞时间不变，打印："hello"  "world"，没有打印"kotlin coroutines"，
- * 协程需要暂停1000毫秒，当前线程打印了"hello"之后，只休眠了500毫秒，然后把'world'打印出来，线
- * 程就结束了。协程是依附于线程的，线程已经结束生命周期了，协程也没有机会执行了，所以不会打印"kotlin coroutines"。
+ * 如果把线程休眠时间改成500毫秒，协程阻塞时间不变，打印："hello"  "world"，没有打印
+ * "kotlin coroutines"，协程需要暂停1000毫秒，当前线程打印了"hello"之后，只休眠了500毫秒，然后把
+ * "world"打印出来，线程就结束了。协程是依附于线程的，线程结束生命周期，协程也就结束了，所以不会打印
+ * 'kotlin coroutines'。
  */

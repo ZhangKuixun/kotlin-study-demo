@@ -14,7 +14,8 @@ import kotlin.concurrent.thread
  *
  * repeat(times: Int, action: (Int) -> Unit)：执行给定函数times次
  * 第二个参数：是一个函数类型，函数接收一个Int类型的值，不返回结果。
- * 为什么可以在repeat中用launch，因为launch函数没有显式的使用索引值。
+ *
+ * 为什么可以在repeat中用launch，因为launch没有使用repeat的索引值，repeat会给函数体一个int值。
  */
 fun main() = runBlocking {
     repeat(10) {

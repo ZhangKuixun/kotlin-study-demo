@@ -12,7 +12,7 @@ import kotlin.concurrent.thread
  *
  * 协程可以无限制的创建，用repeat函数
  *
- * 用线程的方式实现repeat
+ * 用线程的方式实现launch
  */
 fun main() = runBlocking {
     // 原始写法

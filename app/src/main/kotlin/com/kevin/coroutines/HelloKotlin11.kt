@@ -14,13 +14,12 @@ import kotlinx.coroutines.runBlocking
  *
  * 挂起函数只能在协程或另外一个挂起函数中使用。(重点)
  */
-fun main() {
-    runBlocking {
-        launch {
-            world()
-        }
+fun main() = runBlocking<Unit> {
+    launch {
+        world()
     }
 }
+//打印：4秒后打印"hello world"
 
 suspend fun hello() {
     delay(4000)

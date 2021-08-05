@@ -8,6 +8,10 @@ import kotlinx.coroutines.*
  * describe：
  * 函数超时 withTimeoutOrNull
  *
+ * 用正常方式关闭所有的资源，解决：
+ * 1.把相关代码放到一个try...catch块中。
+ * 2.withTimeoutOrNull，他非常类似于withTimeout，不过当超时发生时，它不会抛出
+ * CancellationException异常，而是直接返回null。
  */
 fun main() = runBlocking {
     val result = withTimeoutOrNull(1900) {

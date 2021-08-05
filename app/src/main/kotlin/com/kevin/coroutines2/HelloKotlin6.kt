@@ -8,8 +8,9 @@ import kotlinx.coroutines.*
  * describe：
  * 函数超时 withTimeout
  *
- * 我们在使用协程时，执行取消协程，很大一部分原因在于协程的执行时间超时了。可以通过手工引用与协程的Job，
- * 启动另一个单独的协程，取消这个协程，不过Kotlin提供了一个函数来帮我们做到这一点。
+ * 解决函数超时：
+ * 1.手工引用协程的Job，启动另一个单独的协程，取消这个协程。
+ * 2.使用withTimeout。
  */
 fun main() = runBlocking {
     withTimeout(1900) {
@@ -21,6 +22,8 @@ fun main() = runBlocking {
     //打印：打印五次"hello, 0...4"；抛出异常TimeoutCancellationException；
 }
 /**
+ * 抛出的异常TimeoutCancellationException是CancellationException的子类。
+ *
  * withTimeout(timeMillis: Long, block: suspend CoroutineScope.() -> T)
  * timeMillis：超时的时间，毫秒；
  * block：需要执行的逻辑。

@@ -27,7 +27,7 @@ fun main() = runBlocking {
     myJob.cancelAndJoin()
 
     println("welcome")
-    //打印：打印三次"hello 0...2"； "hello world"； "welcome"；
+    //打印：每隔500毫秒打印，打印三次"hello 0...2"；到达1100毫秒 "hello world"； "welcome"；
 }
 /**
  * public fun cancel(cause: CancellationException? = null)

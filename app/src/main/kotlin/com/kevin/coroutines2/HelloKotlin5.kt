@@ -29,7 +29,11 @@ fun main() = runBlocking {
     myJob.cancelAndJoin()
     println("welcome")
 
-    //打印：打印三次"job: sleeping 0...2"； "hello world"； "执行了finally块"； "welcome"；
+    //没有withContext(NonCancellable)
+    //打印：打印三次"job: sleeping 0...2"； "hello world"； 1秒后打印："执行了finally块"； "welcome"；
+
+    //有withContext(NonCancellable)
+    //打印：打印三次"job: sleeping 0...2"； "hello world"； 1秒后打印："执行了finally块"； "welcome"；
 }
 /**
  * 在finally中，执行最后的清理，finally中执行挂起函数（delay），挂起函数后面的代码，没有执行。
@@ -39,7 +43,7 @@ fun main() = runBlocking {
  * 但是不会显式抛出异常，原因在于运行着该代码块的协程已经被取消了，这不会产生什么问题，因为大多数关闭操
  * 作通常都是非阻塞的，比如：取消一个job、关闭网络连接，并不需要使用挂起函数。
  * 如果，需要在一个取消的协程中执行挂起函数，可以将执逻辑放入withContext(NonCancellabe){...}中，
- * 这种结构中，实际使用了withContext函数与NonCancellable上下文，可以规避CancellationException。
+ * 它实际使用了withContext函数与NonCancellable上下文，可以规避CancellationException。
  *
  * 用withContext变形：
  * 打印：打印三次"job: sleeping 0...2"；"hello world"；"执行了finally块"；"执行了delay的代码"；"welcome"；

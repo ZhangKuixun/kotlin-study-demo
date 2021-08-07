@@ -59,11 +59,11 @@ fun main() = runBlocking<Unit> {
     }
 //    launch(Executors.newSingleThreadExecutor().asCoroutineDispatcher()) {
     val thread = Executors.newSingleThreadExecutor().asCoroutineDispatcher()
-    launch(thread) {
+    launch( ) {
         println("single thread executor, thread:${Thread.currentThread().name}")
         thread.close()
     }
-    //打印：都会打印打印的顺序是随机的，并且程序一直在执行。
+    //打印：都会打印，打印顺序是随机的，并且程序一直在执行。
 
     GlobalScope.launch {
         println("GlobalScope.launch, thread:${Thread.currentThread().name}")

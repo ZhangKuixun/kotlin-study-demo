@@ -40,14 +40,18 @@ fun main() = runBlocking {
         println(result1 + result2)//35
     }
     println(elapsedTime)//9030
-    //打印："hello world"；9秒后打印"35"、"9030"
+    // 没有start
+    // 打印："hello world"；9秒后打印"35"、"11050"
+
+    // 有start
+    // 打印："hello world"；9秒后打印"35"、"9049"
 }
 /**
  * 分析：
- * 代码走到"val value1 = async(start = CoroutineStart.LAZY) { intValue1() }"，是不会执行
- * intValue1()的，代码执行到"value1.start()"，async函数才会启动，intValue1()才真正的执行，会
- * 并发执行intValue1()和intValue2()，然后代码执行到value1.await()和value2.await()，2秒后获
- * 取到result1，再过1秒后获取到result2，最后计算值为35，使用的时间=6000+3000+计算的时间。
+ * 代码走到"val value1 = async(start = CoroutineStart.LAZY) { intValue1() }"，不会执行
+ * intValue1()；代码走到"value1.start()"，async函数才会启动，intValue1()才真正执行，并发
+ * 执行intValue1()和intValue2()；然后代码走到value1.await()和value2.await()，并发获取
+ * value1和value2的值，最后计算值为35，使用的时间=6000+3000+计算的时间。
  *
  * start()：启动一个协程，不会阻塞线程，并发执行。
  *

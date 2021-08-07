@@ -15,7 +15,7 @@ import kotlinx.coroutines.runBlocking
  *
  */
 fun main() = runBlocking<Unit> {
-    val job: Job? = this.coroutineContext[Job]
+    val job: Job? = coroutineContext[Job]
     println(job)
     //打印：BlockingCoroutine{Active}@6e5e91e4
 
@@ -46,6 +46,6 @@ fun main() = runBlocking<Unit> {
  * public interface Job : CoroutineContext.Element {
  *     public companion object Key : CoroutineContext.Key<Job> {}
  * }
- * 因为在Job里面定义了一个伴生对象Key，CoroutineContext.Key<Job>key里面的泛型就是Job。
+ * 因为在Job里面定义了一个伴生对象Key，伴生对象里面的泛型就是Job。
  *
  */

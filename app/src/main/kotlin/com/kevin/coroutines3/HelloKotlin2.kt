@@ -27,8 +27,8 @@ private suspend fun intValue2(): Int {
 
 fun main() = runBlocking {
     val elapsedTime = measureTimeMillis {
-        val value1 = async { intValue1() }
-        val value2 = async { intValue2() }
+        val value1: Deferred<Int> = async { intValue1() }
+        val value2: Deferred<Int> = async { intValue2() }
         val result1 = value1.await()
         val result2 = value2.await()
         println(result1 + result2)//35
@@ -38,8 +38,10 @@ fun main() = runBlocking {
 }
 /**
  * 分析：
- * 代码走到"val value1 = async { intValue1() }"，会立即执行intValue1()，因为async的第二个
- * 参数默认是立即执行，是并发执行的，接着执行"value1.await()"和"value2.await()"获取结果。
+ * 代码走到"val value1 = async { intValue1() }"，会立即执行intValue1()，因为async的
+ * 第二个参数默认是立即执行，value1和value2是并发执行的，接着执行"value1.await()"和
+ * "value2.await()"获取结果。
  *
- * await()：返回协程的结果值，不阻塞线程。
+ * await()：
+ * 返回协程的结果值，不阻塞线程。
  */

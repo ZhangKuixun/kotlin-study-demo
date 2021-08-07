@@ -7,6 +7,8 @@ import kotlinx.coroutines.*
  * create time：2021/7/28
  * describe：
  * 线程跳转
+ *
+ * -Dkotlinx.coroutines.debug
  */
 private fun log(logMessage: String = "") = println("[${Thread.currentThread().name}] $logMessage")
 
@@ -35,5 +37,8 @@ fun main() = runBlocking<Unit> {
  * 为什么是两个协程？
  * 线程1(context1)上创建了一个协程(@coroutine#2)，线程2(context2)上创建了协程(@coroutine#2)
  *
- * use：在SingleThreadContext上执行给定的block块，无论是否抛出异常，都会将线程正确的关闭掉。
+ * use：
+ * 文档：
+ * fun <T : Closeable?, R> T.use(block: (T) -> R): R {
+ * 执行给定的block块，无论是否抛出异常，都会将线程正确的关闭掉（使用较多）。
  */

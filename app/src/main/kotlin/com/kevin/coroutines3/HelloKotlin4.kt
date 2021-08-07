@@ -43,9 +43,6 @@ fun main() {
 }
 /**
  * 分析：
- * 把挂起函数intValue1()写入一个普通的函数intValue1Async()中，就可以就可以在任何地方使用挂起函数了，
- * 但是intValue1Async.await()必须要用在协程里，因为await函数是一个挂起函数。
- *
- *
- *
+ * 把挂起函数intValue1()写入一个普通的函数intValue1Async()中，就可以就可以在任何地方使用
+ * 挂起函数了，但是intValue1Async.await()必须要用在协程里，因为await函数是一个挂起函数。
  */

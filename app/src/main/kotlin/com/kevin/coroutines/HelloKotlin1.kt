@@ -69,6 +69,8 @@ import kotlinx.coroutines.launch
  *   CoroutineScope.async{}可以实现与launcher builder一样的效果，不会阻塞当前线程，在后台创建
  *   一个新协程，唯一的区别是它有返回值，因为CoroutineScope.async{}返回的是Deferred类型。
  *
+ *
+ * 第一个协程代码
  */
 
 fun main() {
@@ -101,7 +103,7 @@ fun main() {
  * Thread.sleep(2000)
  * println("world")
  * 1.GlobalScope.launch是一个协程构建器，GlobalScope继承了CoroutineScope，GlobalScope.launch
- * 会在后台创建一个协程，不会阻塞当前线程，当前线程正常往下进行，执行println("hello")，打印"hello"，
+ * 会在后台创建一个协程，不会阻塞线程，线程正常往下进行，执行println("hello")，打印"hello"，
  * 主线程打印完"hello"后，会立刻执行Thread.sleep(2000)，让当前线程休眠2000毫秒；
  * 2.协程创建完毕后，立刻执行协程里面的代码，执行协程的第一行代码是delay(1000)，delay(1000)表
  * 示让当前协程停止1000毫秒，1000毫秒后打印"kotlin coroutines"，协程就执行完了；
@@ -116,8 +118,8 @@ fun main() {
  * println("hello")
  * Thread.sleep(500)
  * println("world")
- * 如果把线程休眠时间改成500毫秒，协程阻塞时间不变，打印："hello"  "world"，没有打印
- * "kotlin coroutines"，协程需要暂停1000毫秒，当前线程打印了"hello"之后，只休眠了500毫秒，然后把
- * "world"打印出来，线程就结束了。协程是依附于线程的，线程结束生命周期，协程也就结束了，所以不会打印
- * 'kotlin coroutines'。
+ * 分析：如果把线程休眠时间改成500毫秒，协程阻塞时间不变，打印："hello"  "world"，没有打印
+ * "kotlin coroutines"，因为协程需要挂起1000毫秒，线程打印了"hello"之后，线程只休眠了500毫
+ * 秒，然后把"world"打印出来，线程就结束了。协程是依附于线程的，线程结束生命，协程也结束了，所
+ * 以不会打印'kotlin coroutines'。
  */

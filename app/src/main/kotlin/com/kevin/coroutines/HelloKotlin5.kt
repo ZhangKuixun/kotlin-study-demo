@@ -23,7 +23,9 @@ fun main() = runBlocking {
     //打印：hello；1秒后打印"kotlin coroutines"；打印"world"
 }
 /**
+ * join：
+ * 文档：
  * public suspend fun join()
- * 挂起协程，直到job完成。这个调用会正常继续执行，当job出于任何原因完成，
+ * 挂起协程，直到Job完成。这个调用会正常继续执行，当job出于任何原因完成，
  * 不会抛出异常，并且，job会进入active状态。这个函数还会启动一个协程，如果job是new的状态。
  */

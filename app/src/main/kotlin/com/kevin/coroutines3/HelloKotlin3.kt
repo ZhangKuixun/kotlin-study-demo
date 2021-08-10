@@ -7,6 +7,7 @@ import kotlin.system.measureTimeMillis
  * other：Kevin
  * create time：2021/7/27
  * describe：
+ *
  * async延迟执行：
  * async的第二个参数设置为CoroutineStart.LAZY，就变成了延迟执行，有两个启动协程方式：
  * 1.调用Deferred的await方法，同步执行。
@@ -32,7 +33,7 @@ fun main() = runBlocking {
         Thread.sleep(6000)
 
         // 如果协程的启动模式是CoroutineStart.LAZY，把start()方法去掉，只用await启动协程，协程会变成串行。
-//        value1.start()
+        value1.start()
 //        value2.start()
 
         val result1 = value1.await()

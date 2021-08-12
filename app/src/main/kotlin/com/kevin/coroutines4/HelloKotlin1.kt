@@ -55,6 +55,7 @@ fun main() = runBlocking<Unit> {
         println("Dispatchers.Unconfined, thread:${Thread.currentThread().name}")
     }
     launch(Dispatchers.Default) {
+        Dispatchers
         println("Dispatchers.Default, thread:${Thread.currentThread().name}")
     }
 //    launch(Executors.newSingleThreadExecutor().asCoroutineDispatcher()) {

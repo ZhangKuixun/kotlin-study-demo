@@ -9,7 +9,7 @@ import kotlinx.coroutines.runBlocking
  * create time：2021/7/30
  * describe：
  *
- * 对于父子协程来说，父协程总会等待它的所有子协程完成。父协程不用显示追踪由它启动的子线程，也不用调用
+ * 对于父子协程来说，父协程总会等待它的所有子协程完成。父协程不用显示追踪自己启动的子线程，也不用调用
  * 子协程的Job.join方法等待子协程完成。
  */
 fun main() = runBlocking {

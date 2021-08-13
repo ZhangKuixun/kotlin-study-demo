@@ -14,6 +14,10 @@ import kotlinx.coroutines.runBlocking
  * CoroutineName可以对协程命名。
  *
  * CoroutineName：
+ * 文档：
+ * public data class CoroutineName(
+ *   val name: String
+ * ) : AbstractCoroutineContextElement(CoroutineName) {
  * 是一个数据类，开发者可以指定协程的名字，这个名字用在debug模式。
  *
  * -Dkotlinx.coroutines.debug

@@ -6,7 +6,7 @@ package com.kevin.coroutines5
  * describe：
  *
  * 如何返回多个通过异步计算的结果值？
- * 1).使用集合：阻塞主线程，一次性返回全部计算结果。
+ * 1).集合：阻塞主线程，一次性返回全部计算结果。
  */
 private fun myMethod(): List<String> = listOf("hello", "world", "welcome")
 

@@ -13,8 +13,9 @@ import kotlinx.coroutines.runBlocking
  * describe：
  * Flow：有多个元素执行完一个就返回一个。
  *
- * 如果想要返回List<String>类型，表示只能一次性返回所有值。如果想异步流式的返回值，可以使用
- * Flow<String>类型，类似于Sequence<String>类型，但Sequence是同步计算的。
+ * 想要返回List<String>类型，一次性返回所有值。
+ * 想要返回Flow<String>类型，异步流式的返回结果。
+ * Flow类似于Sequence<String>类型，但Sequence是同步的。
  */
 private fun myMethod(): Flow<Int> = flow {
     for (i in 1..4) {
@@ -55,6 +56,9 @@ fun main() = runBlocking<Unit> {
 /**
  * 1.Flow构建器通过flow创建。
  * 2.位于flow{}构建器的代码可以挂起。
- * 3.myMethod方法不需要使用suspend标识符，值是通过emit函数发射。
+ * 3.myMethod方法不需要使用suspend标识符，用emit发射值。
  * 4.Flow里面的值通过collect方法收集。
+ *
+ *
+ *
  */

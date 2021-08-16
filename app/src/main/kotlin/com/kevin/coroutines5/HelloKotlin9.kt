@@ -13,8 +13,9 @@ import kotlinx.coroutines.runBlocking
  * Flow的转换操作
  * transform：
  * 文档：
- * 是flow的扩展方法，把transform函数应用到给定流的每一个值。transform的接收者是FlowCollector，
+ * 是flow的扩展方法，把transform应用到给定流的每一个值。transform的接收者是FlowCollector，
  * transform是通用的函数，可以转换发射出来的元素，将它忽略或发射多次。
+ * 例如：
  * fun Flow<Int>.skipOddAndDuplicateEven(): Flow<Int> = transform { value ->
  *     if (value % 2 == 0) { // Emit only even values, but twice
  *         emit(value)

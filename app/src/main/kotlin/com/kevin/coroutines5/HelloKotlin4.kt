@@ -55,9 +55,9 @@ fun main() = runBlocking<Unit> {
 }
 /**
  * 1.Flow构建器通过flow创建。
- * 2.位于flow{}构建器的代码可以挂起。
- * 3.myMethod方法不需要使用suspend标识符，用emit发射值。
- * 4.Flow里面的值通过collect方法收集。
+ * 2.flow{}里面的代码可以挂起。
+ * 3.myMethod方法不需要suspend标识符，用emit发射值。
+ * 4.Flow里面的值用collect方法收集。
  *
  *
  *

@@ -12,8 +12,8 @@ import kotlinx.coroutines.runBlocking
  * create time：2021/8/1
  * describe：
  * Flow的中间运算符
- * Flow的中间运算符的思想与Java Stream完全一致，每一个元素从上游一个执行到下游，再执行下一个元素。
- * Flow与Sequence的中间运算符的重要差别：Flow的中间运算符内的代码块是可以调用挂起函数的。
+ * 中间运算符的思想与Java Stream完全一致，每一个元素从上游一个执行到下游，再执行下一个元素。
+ * Flow与Sequence的中间运算符的重要差别：中间运算符的代码块可以调用挂起函数。
  *
  */
 private suspend fun myExecution(input: Int): String {

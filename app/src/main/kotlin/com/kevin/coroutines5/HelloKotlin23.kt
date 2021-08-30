@@ -1,9 +1,7 @@
 package com.kevin.coroutines5
 
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
-import java.lang.Exception
 
 /**
  * other：Kevin
@@ -12,7 +10,7 @@ import java.lang.Exception
  * Flow的完成
  *
  * 声明式：
- * onCompletion中间操作会在Flow的collect终止操作完成后，再去执行onCompletion。重点。
+ * onCompletion是中间操作，它在Flow的collect完成后再执行onCompletion。重点。
  */
 private fun myMethod(): Flow<Int> = (1..3).asFlow()
 

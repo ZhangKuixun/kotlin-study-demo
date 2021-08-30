@@ -27,7 +27,7 @@ fun main() = runBlocking<Unit> {
  * unsafeFlow：
  * 文档：类似于Flow构建器，不会检查flow的执行上下文。在自己运算符中操作，是受信任的上下文。
  *
- * unsafeFlow(@BuilderInference crossinline block: suspend FlowCollector<T>.() -> Unit)
+ * inline fun <T> unsafeFlow(@BuilderInference crossinline block: suspend FlowCollector<T>.() -> Unit)
  * crossinline：
  * 非局部返回（non-local returns）：（重要）
  * 1.在一个方法内部用一个lambda表达式的结果作为外层方法的返回值。在一个方法内部执行一个方法，内部方

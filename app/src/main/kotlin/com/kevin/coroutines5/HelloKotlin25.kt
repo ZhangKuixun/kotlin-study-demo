@@ -2,7 +2,6 @@ package com.kevin.coroutines5
 
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
-import java.lang.RuntimeException
 
 /**
  * other：Kevin
@@ -29,6 +28,6 @@ fun main() = runBlocking<Unit> {
 }
 /**
  * 分析：
- * 执行collect，检查如果value大于等于1，抛出异常，否则打印出来，collect执行结束后再执行onCompletion
- *
+ * 执行collect，检查如果value大于等于1，抛出异常，否则打印出来，collect执行结束后再执行
+ * onCompletion，第二次执行时value大于1，抛出异常。
  */

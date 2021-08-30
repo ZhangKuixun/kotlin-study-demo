@@ -2,7 +2,6 @@ package com.kevin.coroutines5
 
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
-import java.lang.Exception
 
 /**
  * other：Kevin

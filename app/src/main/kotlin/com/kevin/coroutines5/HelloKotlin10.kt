@@ -40,8 +40,7 @@ fun main() = runBlocking {
  * 抛出IllegalArgumentException
  *
  * AbortFlowException：
- * 终止异常，继承了CancellationException，CancellationException是
- * java.util.concurrent.CancellationException别名
+ * 终止异常，继承kotlinx.coroutines.CancellationException，最终是java.util.concurrent.CancellationException。
  *
  * actual：多模块开发时，公共的模块或独立模块可以使用actual标识。
  *

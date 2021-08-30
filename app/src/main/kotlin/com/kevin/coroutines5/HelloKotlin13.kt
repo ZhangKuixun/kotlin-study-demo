@@ -12,7 +12,7 @@ import kotlinx.coroutines.runBlocking
  * Flow Context（Flow 上下文）
  *
  * Context Preservation（上下文保留）
- * Flow的收集动作是发生在调用协程的上下文中，和定义FLow的上下文没有关系。
+ * Flow的收集动作是发生在调用协程的上下文中，只和调用协程的上下文有关系，和定义FLow的上下文没有关系。
  *
  *
  *-Dkotlinx.coroutines.debug

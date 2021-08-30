@@ -33,7 +33,7 @@ fun main() = runBlocking {
 }
 /**
  * 分析：
- * myMethod().buffer()对buffer做一个缓冲，不用等待发射的延迟操作。
+ * myMethod().buffer()做一个缓冲，不用等待发射的延迟操作。
  *
  * buffer的主要作用是对发射的缓冲，减少等待时间。
  *

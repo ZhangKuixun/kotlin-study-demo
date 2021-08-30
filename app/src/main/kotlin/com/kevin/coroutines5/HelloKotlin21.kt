@@ -44,5 +44,6 @@ fun main() = runBlocking {
  * 出来的值是不是小于等于1，如果小于等于1就返回值，否则抛出抛出异常。
  *
  * check：
+ * 文档：
  * 如果value为false，lazyMessage的作为异常的一部分，抛出IllegalStateException。
  */

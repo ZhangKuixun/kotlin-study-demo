@@ -16,7 +16,7 @@ class Person constructor(username: String) {// primary构造方法
     private var address: String// 地址
 
     init {
-        println(username)
+        println(username)//zhangsan
 
         this.username = username
         this.age = 20
@@ -52,11 +52,11 @@ fun main() {
     val person2 = Person("wangwu", 40, "chengdu")//wangwu  wangwu, 40
 
     println("---------")
-    person.printInfo()
+    person.printInfo()//username:zhangsan, age:20, address:北京
 
     println("---------")
-    person1.printInfo()
+    person1.printInfo()//username:lisi, age:20, address:北京
 
     println("---------")
-    person2.printInfo()
+    person2.printInfo()//username:wangwu, age:20, address:chengdu
 }

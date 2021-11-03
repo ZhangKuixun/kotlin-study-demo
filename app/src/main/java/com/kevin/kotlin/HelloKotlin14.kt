@@ -12,8 +12,9 @@ class Child(name: String, age: Int) : Parent(name, age) {
 
 
 /**
- * kotlin中，一个类没有Primary构造方法，还继承了另外一个类，当前类的每个secondary构造方法需要通过supper关键字来初始化父类型，
- * 或者通过调用父类的secondary构造方法，不同的secondary构造方法可以调用父类型不同的构造方法。
+ * kotlin中，一个类没有Primary构造方法，还继承了另外一个类，当前类的每个secondary构造方法需要通过
+ * supper关键字来初始化父类型，或者通过调用父类的secondary构造方法，不同的secondary构造方法可以调
+ * 用父类型不同的构造方法。
  */
 open class Parent2(name: String) {}
 

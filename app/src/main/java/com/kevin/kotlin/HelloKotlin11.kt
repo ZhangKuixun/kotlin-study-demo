@@ -14,9 +14,11 @@ package com.kevin.kotlin
  * class Customer public @Inject constructor(name: String) {}
  */
 class MyClass constructor(username: String) {
+    private val username: String = username.toUpperCase()
+
     init {
-        // 这是默认的初始化函数，可以使用primary构造函数的任何参数
         // 类首先执行的方法
+        // 这是默认的初始化函数，可以使用primary构造函数的任何参数
         println(username)//zhangsan
     }
 }

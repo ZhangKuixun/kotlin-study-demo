@@ -1,6 +1,6 @@
 package com.kevin.kotlin
 
-open class MyParent3 {
+open class MyParent {
     open fun method() {
         println("parent method")
     }
@@ -15,7 +15,7 @@ open class MyParent3 {
  *
  * 本质上，val相当于get方法；var相当于get与set方法。
  */
-class MyChild3 : MyParent3() {
+class MyChild : MyParent() {
     override fun method() {
         super.method()
         println("child method")
@@ -26,7 +26,7 @@ class MyChild3 : MyParent3() {
 }
 
 fun main() {
-    val child = MyChild3()
+    val child = MyChild()
     child.method()//parent method    child method
-    println(child.name) //parent and child
+    println(child.name)//parent and child
 }

@@ -31,23 +31,22 @@ package com.kevin.kotlin2
  *   这些方法返回的就是对应的字段值，componentN方法是用来实现解构声明的。
  *   2.写结构，必须要按顺序把所有的参数都写出来
  *
- * 创建无参构造方法
- *   kotlin中，如果想要编译器生成无参构造方法，必须为所有属性指定默认值。
+ * jvm平台上，如果想要编译器生成无参构造方法，必须为所有属性指定默认值。
  */
 
 fun main() {
     val person = Person("zhangsan", 20, "beijing")
-    println(person)
+    println(person)//Person(name=zhangsan, age=20, address=beijing)
 
     person.age = 30
-    println(person.age)
+    println(person.age)//30
 
     // copy方法：必须写需要修改的属性名
     val copy = person.copy(address = "hangzhou")
-    println(copy)
+    println(copy)//Person(name=zhangsan, age=30, address=hangzhou)
 
     val (name, age, address) = person
-    println("$name,$age,$address")
+    println("$name,$age,$address")//zhangsan,30,beijing
 }
 
 data class Person(val name: String, var age: Int, var address: String)

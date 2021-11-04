@@ -8,6 +8,7 @@ package com.kevin.kotlin
  * 扩展的定义
  *   1.扩展函数定义在某个类，这个类实列叫做分发接收者（dispatch receiver）
  *   2.扩展函数所扩展的目标类，这个类实例叫做扩展接收者（extension receiver）
+ *   3.当以上两个名字出现冲突，扩展接受者的优先级最高
  *
  * 扩展的作用域
  *   1.在分发接收者，定义了一个扩展函数，在这个扩展函数中可以访问扩展接收者的函数，也可以访问分发接收者的成员。
@@ -66,7 +67,6 @@ fun main() {
 /**
  * 扩展的作用
  *   解决Java中充斥的各种辅助类问题，比如列表的交换方法，必须要把列表传进辅助类里，在辅助类里排序
- * 语法改进：
- *   Java原语法：Collections.swap(list, 4, 10)
- *   kotlin改进语法：list.swap(4, 10)
+ *     Java原语法：Collections.swap(list, 4, 10)
+ *     kotlin改进语法：list.swap(4, 10)
  */

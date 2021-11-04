@@ -11,3 +11,29 @@ fun Any?.toString(): String {
         return "null"
     return toString()
 }
+
+/**
+ * 扩展属性
+ */
+class MyExtensionProperty
+
+val MyExtensionProperty.name: String
+    get() = "hello"
+
+fun main() {
+    val myExtensionProperty = MyExtensionProperty()
+    println(myExtensionProperty.name)//hello
+
+    CompanionObjectExtension.method()//hello world
+}
+
+/**
+ * 扩展伴生对象
+ */
+class CompanionObjectExtension {
+    companion object MyObject {}
+}
+
+fun CompanionObjectExtension.MyObject.method() {
+    println("hello world")
+}

@@ -14,7 +14,7 @@ object MyObject {
 }
 
 fun main() {
-    MyObject.method()
+    MyObject.method()//method
 
     println("---------")
     MyTest.MyObject.method()//method invoked!

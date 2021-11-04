@@ -27,5 +27,5 @@ class C : A, B() {
 
 fun main(args: Array<String>) {
     val c = C()
-    c.method()
+    c.method()//A B
 }

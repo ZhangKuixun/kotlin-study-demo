@@ -27,6 +27,8 @@ class TheClass {
 
 fun main() {
     val theClass = TheClass()
+//    theClass.print()//报错
+
     theClass.init()
-    theClass.print()
+    theClass.print()//zhangsan
 }

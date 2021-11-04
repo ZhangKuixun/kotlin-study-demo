@@ -19,6 +19,6 @@ fun myPrint(aa: AA) {
 }
 
 fun main() {
-    myPrint(AA())
-    myPrint(BB())
+    myPrint(AA())//a
+    myPrint(BB())//a
 }

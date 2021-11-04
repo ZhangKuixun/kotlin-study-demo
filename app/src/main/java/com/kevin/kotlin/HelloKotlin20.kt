@@ -40,5 +40,4 @@ fun main() {
     println(thePerson.name)//zhangsan
     thePerson.name = "lisi"
     println(thePerson.name)//lisi
-
 }

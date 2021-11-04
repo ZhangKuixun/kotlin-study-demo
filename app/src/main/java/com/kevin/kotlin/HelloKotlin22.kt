@@ -12,7 +12,7 @@ package com.kevin.kotlin
 *
 * */
 
-fun method(){
+fun method() {
 
 }
 

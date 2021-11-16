@@ -34,10 +34,10 @@ fun main() {
     val person2 = Person2()
     println(person2.age)//20
     println("--")
-    person2.age = 40
+    person2.age = 40//赋值成功
     println(person2.age)//40
     println("--")
-    person2.age = 30
+    person2.age = 30//赋值失败
     println(person2.age)//40
 }
 

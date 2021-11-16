@@ -15,5 +15,5 @@ class OuterClass {
 }
 
 fun main() {
-    println(OuterClass.NestedClass().nestedMethod())
+    println(OuterClass.NestedClass().nestedMethod())//welcome
 }

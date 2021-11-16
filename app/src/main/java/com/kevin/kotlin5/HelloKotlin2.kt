@@ -4,6 +4,7 @@ package com.kevin.kotlin5
  * other：Kevin
  * create time：2021/6/29
  * describe：
+ * 可变参数
  */
 fun myPrint(name: String): Unit {
     println(name)

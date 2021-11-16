@@ -5,7 +5,7 @@ package com.kevin.kotlin5
  * create time：2021/6/28
  * describe：
  * 默认参数（default arguments）
- * 在kotlin中调用java方法时，不能使用具名参数语法，因为java字节码不会总是保留方法的参数信息。★★★
+ * 在kotlin中调用java方法时，不能使用具名参数语法，因为java字节码不保留方法名。★★★
  */
 fun test(a: Int = 0, b: Int = 1) = println(a - b)
 
@@ -40,6 +40,9 @@ fun test4(a: Int, b: Int = 2, c: Int = 3, d: Int) = println(a + b + c + d)
  * 比如：foo(1, x=2)是允许的；foo(x=1, 2)是不允许的；
  */
 
+/**
+ * 可变参数
+ */
 fun test4(vararg str: String) {
     str.forEach { println(it) }
 }

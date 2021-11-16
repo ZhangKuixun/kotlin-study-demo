@@ -9,9 +9,11 @@ import kotlin.reflect.KProperty
  * 属性委托
  */
 class MyDelegate {
+    //参数1：委托对象；参数2：委托的属性
     operator fun getValue(thisRef: Any?, property: KProperty<*>): String =
         "$thisRef, your delegate name is ${property.name}"
 
+    //参数1：委托对象；参数2：委托的属性；参数3：新的值
     operator fun setValue(thisRef: Any?, property: KProperty<*>, value: String) =
         println("$thisRef, new value is $value")
 }

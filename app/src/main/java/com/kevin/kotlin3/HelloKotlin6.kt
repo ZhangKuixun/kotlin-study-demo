@@ -42,7 +42,7 @@ fun main() {
 
     val myObject2 = object {
         init {
-            println("初始化块执行")
+            println("初始化块执行")//运行立即打印
         }
 
         var myProperty = "Hello world"
@@ -55,7 +55,7 @@ fun main() {
 
     val myObject3 = object : MyInterface, MyAbstractClass() {
         override fun myPrint(i: Int) {
-            println("i的值是$i")//i的值是20
+            println("i的值是$i")
         }
 
         override val age: Int
@@ -65,7 +65,7 @@ fun main() {
             println("printMyAbstractClassInfo invoked")
         }
     }
-    myObject3.myPrint(20)
+    myObject3.myPrint(20)//i的值是20
     println(myObject3.age)//30
     myObject3.printMyAbstractClassInfo()//printMyAbstractClassInfo invoked
 }

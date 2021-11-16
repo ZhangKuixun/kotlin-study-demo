@@ -50,21 +50,21 @@ class PeopleLauncher {
         println("welcome")//输出两次
 
         when (property.name) {
-            "name", "address1" -> return PropertyDelegate()//输出一次name
-            else -> throw Exception("无效的名称")//输出一次
+            "name", "address1" -> return PropertyDelegate()
+            else -> throw Exception("无效的名称")
         }
     }
 }
 
 class People {
-    val name: String by PeopleLauncher()
-    val address: String by PeopleLauncher()
+    val name: String by PeopleLauncher()//welcome
+    val address: String by PeopleLauncher()//抛出异常
 }
 
 fun main() {
-    val people = People()//welcome  welcome   exception
-//    println(people.name)
-//    println(people.address)
+    val people = People()
+    println(people.name)
+    println(people.address)
 }
 /**
  * PeopleLauncher是一个提供委托的类，他没有提供getValue和setValue的方法，只有一个provideDelegate方法，

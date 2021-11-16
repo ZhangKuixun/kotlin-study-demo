@@ -4,7 +4,7 @@ package com.kevin.kotlin3
  * other：Kevin
  * create time：2021/6/26
  * describe：
- * 内部类
+ * 局部嵌套类
  */
 class OuterClass2 {
     private val str: String = "hello world"
@@ -25,9 +25,9 @@ class OuterClass2 {
 }
 
 fun main() {
-    println(OuterClass2().InnerClass().innerMethod())
+    println(OuterClass2().InnerClass().innerMethod())//hello world
 
-    println(OuterClass2().getName())
+    println(OuterClass2().getName())//mytest
 }
 
 /**

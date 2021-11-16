@@ -37,10 +37,10 @@ enum class Season3 {
 
 fun main() {
     val season = Season.values()
-    season.forEach { println(it) }
+    season.forEach { println(it) }//SPRING SUMMER AUTUMN WINTER
 
     println("------------")
 
     val season1 = Season.valueOf("SPRING")
-    println(season1.name)
+    println(season1.name)//SPRING
 }

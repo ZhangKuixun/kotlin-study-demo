@@ -10,7 +10,7 @@ package com.kevin.kotlin11
  *
  * 包级别：不在类名中声明对象，直接在文件中声明对象
  *
- * 注意：java类不能用new得到kotlin生成的以Kt结尾的实例，kotlin类的字节码不会生成不带参数的构造方法。☆☆☆
+ * 注意：java类不能用new得到kotlin生成的以Kt结尾的实例，没有生成无参构造方法。☆☆☆
  */
 class MyClass
 

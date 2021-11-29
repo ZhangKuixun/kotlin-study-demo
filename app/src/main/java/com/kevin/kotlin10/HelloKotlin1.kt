@@ -35,6 +35,7 @@ fun main() {
 //    list2.add("hello")
     val item: String = list2[0]//运行报错
 
+    // 平台的空值赋值给kotlin对象：
     val s: String? = item
     val s2: String = item
     // 将平台值传给kotlin声明的变量，s2运行报错。☆☆☆

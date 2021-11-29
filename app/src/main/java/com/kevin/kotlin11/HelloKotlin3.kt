@@ -1,5 +1,6 @@
-@file:JvmName("HelloWorld")
+@file:JvmName("HelloWorld")// 编译后的类名
 @file:JvmMultifileClass
+
 package com.kevin.kotlin11
 
 /**

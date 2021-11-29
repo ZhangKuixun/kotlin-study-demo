@@ -14,7 +14,7 @@ fun main() {
 
     println("-------")
     val myList = mutableListOf(1, 2, 3)
-    // 返回一个原集合，如果原集合里面有null元素，抛出异常
+    // 返回一个非空元素的集合，如果原集合里面有null元素，抛出异常
     println(myList.requireNoNulls())//[1, 2, 3]
 
     // 如果没有元素匹配none方法体的判断，返回true
@@ -22,6 +22,7 @@ fun main() {
         println("没有大于10的")//没有大于10的
     }
 
+    // 返回第一个元素，如果为空，返回null
     println(myList.firstOrNull())//1
     println(myList.lastOrNull())//3
 

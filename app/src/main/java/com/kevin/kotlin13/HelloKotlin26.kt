@@ -19,17 +19,21 @@ class MyTestClass14 {
 }
 
 var myTest = "myTest"
+
 fun main() {
+    // 获取包级别属性的支持字段、get方法、set方法
     val topProp: KMutableProperty0<String> = ::myTest
     println(topProp.javaField)//private static java.lang.String com...HelloKotlin26Kt.myTest
     println(topProp.javaGetter)//public static final java.lang.String com...HelloKotlin26Kt.getMyTest()
     println(topProp.javaSetter)//public static final void com...HelloKotlin26Kt.setMyTest(java.lang.String)
 
+    // 获取可读写属性的支持字段、get方法、set方法
     val n: KMutableProperty1<MyTestClass14, String> = MyTestClass14::name
     println(n.javaField)//private java.lang.String com...MyTestClass14.name
     println(n.javaGetter)//public final java.lang.String com...MyTestClass14.getName()
     println(n.javaSetter)//public final void com...MyTestClass14.setName(java.lang.String)
 
+    // 获取只读属性的支持字段、get方法、set方法
     val p: KProperty1<MyTestClass14, Double> = MyTestClass14::price
     println(p.javaField)//private final double com...MyTestClass14.price
     println(p.javaGetter)//public final double com...MyTestClass14.getPrice()

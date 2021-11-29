@@ -21,6 +21,7 @@ class MyTestClass11 {
 }
 
 fun main() {
+    //
     val kClass = MyTestClass11::class
     val instance = kClass.createInstance()
 

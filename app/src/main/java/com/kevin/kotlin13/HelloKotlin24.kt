@@ -20,15 +20,18 @@ fun main() {
     val kClass = MyTestClass12::class
     val instance = kClass.createInstance()
 
-    val props: Collection<KProperty1<MyTestClass12, *>> = kClass.declaredMemberProperties
+    val props = kClass.declaredMemberProperties
     props.forEach {
         when (it.name) {
+            // 修改name值
             "name" -> {
                 println(it.get(instance))//kotlin
+                // 转换成KMutableProperty1，修改name的值
                 val kmp = it as KMutableProperty1<MyTestClass12, Any>
                 kmp.set(instance, "java")
                 println(it.get(instance))//java
             }
+            // 获取price值
             "price" -> {
                 println(it.get(instance))//2.3
             }
@@ -37,7 +40,7 @@ fun main() {
 }
 /**
  * KProperty1<T, out V>：返回一个属性。
- * T：接收者的类型，用于获取属性的值。
+ * T：获取属性的值。
  * V：属性本身的类型。
  * KMutableProperty1是可以改变的属性类型。
  */

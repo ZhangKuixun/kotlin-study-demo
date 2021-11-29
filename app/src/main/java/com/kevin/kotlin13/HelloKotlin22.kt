@@ -23,10 +23,13 @@ class MyTestClass10(var name: String) {
 
 fun main() {
     val kClass = MyTestClass10::class
+
+    // 获取成员变量
     val createInstance = kClass.createInstance()
     println(createInstance.name)//未知商品
     println(createInstance.price)//0.0
 
+    // 调用有2个参数的构造方法
     val constructors: Collection<KFunction<MyTestClass10>> = kClass.constructors
     constructors.forEach {
         if (it.parameters.size == 2) {

@@ -22,7 +22,7 @@ fun main() {
     //[hello, world, kotlin, java]
 
     // 只有MutableCollection接口才有增删改查的方法，可变集合都实现了这个接口。
-    // readOnlyView.clear()//报错
+    // readOnlyView.clear()//报错，没有clear方法
     // stringList.clear()//正常
 
     println("---------------")

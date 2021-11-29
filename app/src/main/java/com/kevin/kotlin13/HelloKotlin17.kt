@@ -9,21 +9,24 @@ import kotlin.reflect.full.functions
  * 用反射调用方法
  */
 class MyTestClass5 {
-    fun printSomething(name: String) {
-        println("something:$name")
-    }
-
     fun printNothing() {
         println("nothing")
+    }
+
+    fun printSomething(name: String) {
+        println("something:$name")
     }
 }
 
 fun main() {
     val kClass = MyTestClass5::class
     val myTestClass5 = MyTestClass5()
+
+    // 调用无参方法
     val functionToInvoke = kClass.functions.find { it.name == "printNothing" }
     functionToInvoke?.call(myTestClass5)
 
+    // 调用有参方法
     val printSomething = kClass.functions.find { it.name == "printSomething" }
     printSomething?.call(myTestClass5, "hello")
 }

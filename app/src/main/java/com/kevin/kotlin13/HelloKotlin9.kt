@@ -22,5 +22,6 @@ fun myMethod(factory: (x: Int) -> B) {
 }
 
 fun main() {
+    // 往方法传入的是一个规则，不是值，真正执行是方法自己在做。（重要）
     myMethod(::B)//3
 }

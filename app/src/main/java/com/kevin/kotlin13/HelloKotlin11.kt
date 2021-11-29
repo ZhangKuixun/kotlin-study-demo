@@ -10,16 +10,18 @@ import kotlin.reflect.KClass
  */
 
 fun main() {
+    // 通过对象的引用获取kClass对象
     val kotlinLang = "kotlin"
     val kClass: KClass<out String> = kotlinLang::class
     println(kClass)//class kotlin.String
 
     println("-----------")
+    // 通过类的引用获取kClass对象
     val kClassDataType: KClass<String> = String::class
     println(kClassDataType)//class kotlin.String
 
     println("-----------")
-    // kotlin中，无论一个类有多少个实例，这些实例只对应同一个KClass对象。
+    // kotlin中，无论有多少个实例类，只有一个KClass对象。
     val kClass1: KClass<out String> = "kotlin"::class
     val kClass2: KClass<out String> = "java"::class
     val kClass3: KClass<out String> = "ruby"::class
@@ -29,6 +31,7 @@ fun main() {
     println(kClass1 == kClass3)//true
 
     println("-----------")
+    // Java的Class对象对应的KClass
     val kclass4: KClass<out Any> = Class.forName("java.util.Date").kotlin
     println(kclass4)//class java.util.Date
     println(kclass4 == Class.forName("java.util.Date"))//false

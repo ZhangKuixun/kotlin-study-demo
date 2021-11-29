@@ -28,11 +28,15 @@ fun main() {
     println(value2.map(::multiplyBy3))//[10, 10, 10]
 }
 
+
+// 把函数引用赋给变量
 // ::multiplyBy3是函数类型"(Int) -> Int"的值
 val myReference: (Int) -> Int = ::multiplyBy3
 
 // ::multiplyBy3是函数类型"(String) -> String"的值
 val myReference2: (String) -> Int = ::multiplyBy3
 
+
+// 使用类里面的成员作为函数引用，函数类型一定要把类的名字写上。
 // str的函数类型是"String.(Int) -> Char"
 var str: String.(Int) -> Char = String::get

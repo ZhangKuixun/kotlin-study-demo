@@ -8,15 +8,16 @@ package com.kevin.kotlin13
  */
 
 fun main() {
+    // 引用实例的方法
     val str = "abc"
     val getReference = str::get
     println(getReference(1))//b
 
+    // 引用对象的属性
     val length = "test"::length
     println(length.get())//4
 
+    // 引用类的属性，打印字符串的长度
     val length1 = String::length.get("test")
     println(length1)
 }
-
-

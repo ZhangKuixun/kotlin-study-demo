@@ -44,5 +44,6 @@ fun main() {
 
 /**
  * Range的实现原理：
- * Int有自己的IntRange，继承IntProgression，它表示每一次遍历的过程，还继承了ClosedRange，它表示start、endInclusive、是否包含当前值。
+ *  Range有LongRange、IntRange，IntRange继承IntProgression，它表示每一次遍历的过程；
+ *  IntRange还继承了ClosedRange，它表示起始位置、终止位置、是否包含特定的值。
  */

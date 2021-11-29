@@ -9,7 +9,7 @@ import java.util.regex.Pattern
  * describe：
  * 练习：把string字符串列里面的数字过滤掉
  */
-const val s = "abc2def9xy7"
+const val s = "he2l9lo7"
 fun String.filter(predicate: (Char) -> Boolean): String {
     val sb = StringBuilder()
     for (index in 0 until length) {
@@ -26,7 +26,7 @@ fun main() {
 //    println(compile.matcher(s).replaceAll(""))
 
     val filter = s.filter { it.isLetter() }
-    println(filter)
+    println(filter)//hello
 }
 
 

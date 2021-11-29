@@ -8,7 +8,7 @@ package com.kevin.kotlin11;
  */
 class HelloJava4 {
     public static void main(String[] args) {
-        HelloWorld.myPrint();
-        HelloWorld.myPrint2();
+        HelloWorld.myPrint();//hello world
+        HelloWorld.myPrint2();//myPrent2
     }
 }

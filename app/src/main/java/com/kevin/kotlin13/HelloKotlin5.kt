@@ -9,6 +9,7 @@ package com.kevin.kotlin13
  * 方法来说，两个冒号表示一个函数类型的值。
  *
  */
+// 不变属性：
 //const val a = 3
 //
 //fun main() {
@@ -28,6 +29,7 @@ package com.kevin.kotlin13
  * 2.属性访问器：比如"foo"属性的get方法"get-foo"，set方法"set-foo"。
  */
 
+// 可变属性：
 var b = 5
 fun main() {
     ::b.set(10)

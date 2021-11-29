@@ -19,6 +19,7 @@ fun main() {
     val variableToInvoke = kClass.memberProperties.find { it.name == "name" }
 
     println(variableToInvoke?.get(testClass7))//hello
+
     if (variableToInvoke is KMutableProperty<*>) {
         variableToInvoke.setter.call(testClass7, "welcome")
     }

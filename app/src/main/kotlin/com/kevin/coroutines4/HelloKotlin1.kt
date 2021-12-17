@@ -92,7 +92,7 @@ fun main() = runBlocking<Unit> {
  * }
  * Dispatchers.Default：默认协程分发器，如果协程用GlobalScope启动时，使用这个默认的分发器启动协程，
  * 它会使用一个后台的共享线程池来运行协程代码，所以launch(Dispatchers.Default)等价于GlobalScope.launch{}。
- * 它是由JVM的共享线程池作为支持，默认情况下，线程池的最大并行数是cup的最大核心数，至少是2个线程。
+ * 它是由JVM的共享线程池作为支撑，默认情况下，线程池的最大并行数是cup的最大核心数，至少是2个线程。
  * 假如，并行数量是x，不会有超过x的任务能够在分发器上并行执行。
  *
  * 4.

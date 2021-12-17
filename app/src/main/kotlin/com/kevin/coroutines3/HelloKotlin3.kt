@@ -34,7 +34,7 @@ fun main() = runBlocking {
 
         // 如果协程的启动模式是CoroutineStart.LAZY，把start()方法去掉，只用await启动协程，协程会变成串行。
         value1.start()
-//        value2.start()
+        value2.start()
 
         val result1 = value1.await()
         val result2 = value2.await()

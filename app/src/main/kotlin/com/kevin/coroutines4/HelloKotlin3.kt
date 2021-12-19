@@ -24,6 +24,7 @@ fun main() = runBlocking<Unit> {
     //[main] hello world
     //[main] welcome
     //[main] 200
+
     //[main @coroutine#2] hello world
     //[main @coroutine#3] welcome
     //[main @coroutine#1] 200

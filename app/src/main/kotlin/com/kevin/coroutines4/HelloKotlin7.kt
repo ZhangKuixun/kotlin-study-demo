@@ -22,10 +22,18 @@ fun main() = runBlocking {
         }
         println("hello")
     }
-    request.join()
+//    request.join()
     println("world")
 }
 /**
+ * hello
+ * coroutine 0 执行完毕
+ * coroutine 1 执行完毕
+ * coroutine 2 执行完毕
+ * coroutine 3 执行完毕
+ * coroutine 4 执行完毕
+ * world
+ *
  * 分析：
  * request是父协程，启动了5个子协程，request启动完之后调用一个join，join要等待父协程和它的子协程
  * 都执行完join才会返回，最后打印"world"。

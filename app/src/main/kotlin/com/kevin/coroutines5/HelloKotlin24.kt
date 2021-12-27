@@ -23,10 +23,15 @@ private fun myMethod(): Flow<Int> = flow {
 }
 
 fun main() = runBlocking<Unit> {
-    myMethod().onCompletion { cause -> if (cause != null) println("流异常完成") }
-        .catch { cause -> println("catch entered") }
+    myMethod()
+        .onCompletion {
+                cause -> if (cause != null) println("流异常完成")
+        }
+        .catch {
+                cause -> println("catch entered")
+        }
         .collect { println(it) }
     //1
-    //Flow Completed Exceptionally
+    //流异常完成
     //catch entered
 }

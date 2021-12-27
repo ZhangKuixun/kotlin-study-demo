@@ -17,7 +17,10 @@ import kotlinx.coroutines.runBlocking
 private fun myMethod(): Flow<Int> = (1..3).asFlow()
 
 fun main() = runBlocking<Unit> {
-    myMethod().onCompletion { cause -> println("Flow Completed with $cause") }
+    myMethod()
+        .onCompletion { cause ->
+            println("Flow Completed with $cause")
+        }
         .collect { value ->
             check(value <= 1) { "collected $value" }
             println(value)

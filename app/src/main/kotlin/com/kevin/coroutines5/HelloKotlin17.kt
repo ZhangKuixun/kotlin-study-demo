@@ -13,6 +13,10 @@ import kotlin.system.measureTimeMillis
  * create time：2021/8/1
  * describe：
  * Buffer（缓冲）
+ *
+ * 作用：
+ * buffer主要是对流发射出的流元素，做一个缓存，等终止操作把前一个元素真正的处理完后，终止操作再从
+ * 缓存里拿出流元素，减少等待时间。
  */
 private fun myMethod(): Flow<Int> = flow {
     for (i in 1..4) {

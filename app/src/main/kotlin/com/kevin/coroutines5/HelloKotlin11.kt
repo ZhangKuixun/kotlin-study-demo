@@ -17,8 +17,8 @@ import kotlinx.coroutines.runBlocking
  */
 fun main() = runBlocking {
     val result = (1..4).asFlow()
-        .map { it * it }
-        .reduce { a, b -> a + b }
+        .map { it * it }// 1,4,9,16
+        .reduce { a, b -> a + b }//1+4+9+16=30
     println(result)//30
 }
 /**
